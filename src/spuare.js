@@ -2,23 +2,42 @@
 import React, { Component } from 'react';
 
 class Square extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             value: 'hahaha',
+            btn2: '初始值',
+            ...props,
         }
+        console.log('props', props)
+        console.log('state', this.state)
+    }
+    handClick(value) {
+        console.log('value=', value)
+        const params = {
+            btn2: '更新后的值' + value,
+        }
+        this.setState({ ...params })
     }
     render() {
         return (
-            <button
-                className="square"
-                onClick={() => {
+            <div>
+                <button
+                    className="square"
+                    onClick={() => {
+                        const num = parseInt(Math.random() * 100)
+                        this.setState({value: `new set value ${num}`})
+                        console.log(11111)
+                    }}>
+                    {this.state.value}
+                </button>
+                <button onClick={() => {
                     const num = parseInt(Math.random() * 100)
-                    this.setState({value: `new set value ${num}`})
-                    console.log(11111)
+                    this.handClick(num)
                 }}>
-                {this.state.value}
-            </button>
+                    {this.state.btn2}
+                </button>
+            </div>
         )
     }
 }

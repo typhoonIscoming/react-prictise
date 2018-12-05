@@ -5,6 +5,12 @@ import './App.css';
 import Square from './spuare.js'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      parentValue: 'i am your father',
+    }
+  }
   render() {
     return (
       <div className="App">
@@ -13,7 +19,9 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <Square value="1111" />
+          <Square
+            initValue="1111"
+            parentStr={this.state.parentValue} />
           <a
             className="App-link"
             href="https://reactjs.org"
