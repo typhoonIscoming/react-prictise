@@ -32,7 +32,7 @@ const MyComponent = (props) => {
         <ul className='menu-container'>
             { menu.map((item, index) => {
             // return <Item key={index} data={item}/>
-            return <li><NavLink to={item.url} key={index} activeClassName='selected'>{item.name}</NavLink></li>
+            return <li><NavLink to={item.url} activeClassName='selected'>{item.name}</NavLink></li>
             }) }
         </ul>
     )
