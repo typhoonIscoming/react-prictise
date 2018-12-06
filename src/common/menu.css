@@ -1,0 +1,12 @@
+.menu-container{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+.menu-container li{
+    list-style: none;
+    flex: 1;
+}
