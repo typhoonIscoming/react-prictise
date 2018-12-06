@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { NavLink } from 'react-router-dom';
+
 import './menu.css'
 
 import menu from '../utils/menu'
@@ -8,17 +11,19 @@ import menu from '../utils/menu'
 // }
 
 class Item extends React.Component{
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+        this.handClick = this.handClick.bind(this)
+    }
+    handClick(str) {
+        console.log('你点击了', str)
+    }
     render() {
         return (
             <li onClick={this.handClick(this.props.data.name)}>{this.props.data.name}</li>
         )
     }
-    handClick(str) {
-        console.log('你点击了', str)
-    }
+    
 }
 
 const MyComponent = (props) => {
@@ -26,7 +31,8 @@ const MyComponent = (props) => {
     return (
         <ul className='menu-container'>
             { menu.map((item, index) => {
-            return <Item key={index} data={item}/>
+            // return <Item key={index} data={item}/>
+            return <li><NavLink to={item.url} key={index} activeClassName='selected'>{item.name}</NavLink></li>
             }) }
         </ul>
     )

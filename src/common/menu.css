@@ -10,3 +10,9 @@
     list-style: none;
     flex: 1;
 }
+.menu-container li a{
+    color: black;
+}
+.menu-container li a.selected{
+    color: red;
+}
