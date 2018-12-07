@@ -13,15 +13,25 @@ import Second from '../pages/Second'
 import Home from '../pages/Home.js'
 import Mine from '../pages/Mine'
 
-const MainRoute = () => (
-    <div className='content'>
-        <Switch>
-            <Route path='/' exact={true} component={Home}/>
-            <Route path="/Second" component={Second} />
-            <Route path="/Square" component={Square} />
-            <Route path="/Mine" component={Mine} />
-        </Switch>
-    </div>
-)
+class MainRoute extends React.Component {
+    getDefaultRouter() {
+        return '/Home'
+    }
+    render() {
+        return (
+            <div className='content'>
+                <Switch>
+                    <Route exact path='/'>
+                        <Redirect to='/Home' />
+                    </Route>
+                    <Route path="/Home" component={Home} />
+                    <Route path="/Second" component={Second} />
+                    <Route path="/Square" component={Square} />
+                    <Route path="/Mine" component={Mine} />
+                </Switch>
+            </div>
+        )
+    }
+}
 
 export default MainRoute

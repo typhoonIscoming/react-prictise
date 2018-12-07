@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import browser from '../utils/browser'
+
+
+
 
 class Second extends Component{
     constructor(props) {
@@ -8,14 +12,12 @@ class Second extends Component{
             age: 20,
             ...props,
         }
-        console.log('props', props)
-        console.log('state', this.state)
     }
     getStateValue(data, e) {
         this.setState((prevState, props) => {
             return {age: ++prevState.age}
         })
-        console.log('第二页的state中的数据', data, e)
+        console.log(browser())
     }
     render() {
         return (

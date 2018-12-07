@@ -8,7 +8,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        
         <MainRoute />
         <Menu value='this is parentComponent from App' />
       </div>
