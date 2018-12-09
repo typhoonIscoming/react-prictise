@@ -16,6 +16,7 @@ class Second extends Component{
             ...props,
         }
         this.handleInputChange = this.handleInputChange.bind(this)
+        this.printChild = this.printChild.bind(this)
     }
     getStateValue(data, e) {
         this.setState((prevState, props) => {
@@ -32,6 +33,9 @@ class Second extends Component{
         });
         console.log('----', name, value)
     }
+    printChild(data) {
+        console.log('this is from child component data and print in parent', data)
+    }
     render() {
         const arr = [ {name: 'zhangsan', age: 10 }, { name: 'lisi', age: 15 }, { name: 'wangwu', age: 20 } ]
         return (
@@ -44,7 +48,7 @@ class Second extends Component{
                     type="number"
                     value={this.state.numberOfGuests}
                     onChange={this.handleInputChange} />
-                <Select optionList={arr}>
+                <Select optionList={arr} parentEvent={this.printChild}>
                     <div className='select-slot'>i am the slot in component of Select</div>
                 </Select>
             </div>
