@@ -12,7 +12,7 @@ const browsertype = () => {
   })
   if (!!cookie.get('http_ostype')) return 'app' // eslint-disable-line
   else if (/MicroMessenger/i.test(ua)) return 'wx'
-  else if (!isNaN(flag)) return 'phone'
+  else if (flag && !isNaN(flag)) return 'phone'
   return 'pc'
 }
 
