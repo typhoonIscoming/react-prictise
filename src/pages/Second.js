@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import browser from '../utils/browser'
+// import browser from '../utils/browser'
 import { map } from 'lodash'
 
 import Select from '../components/select'
-import counter from '../model/reducer'
+import reducer from '../model/reducer'
 import { addTodo } from '../model/action/index'
 
 import { createStore } from 'redux';
 
-const store = createStore(counter)
+const store = createStore(reducer)
 
 class Second extends Component{
     constructor(props) {
@@ -32,7 +32,7 @@ class Second extends Component{
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
         // console.log(addTodo('i am text'))
-        store.dispatch(addTodo({ type: 'ADD_TODO', text: 'i am input box', payload: value }), value)
+        store.dispatch(addTodo({ type: 'ADD_TODO', text: 'i am input box', payload: value }))
         this.setState({
             [name]: value
         });
