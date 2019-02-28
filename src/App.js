@@ -1,36 +1,15 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+// import logo from './logo.svg';
 import './App.css';
+import MainRoute from './router'
+import Menu from './common/menu'
 
-import Square from './spuare.js'
-
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      parentValue: 'i am your father',
-    }
-  }
+class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <Square
-            initValue="1111"
-            parentStr={this.state.parentValue} />
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <MainRoute />
+        <Menu value='this is parentComponent from App' />
       </div>
     );
   }
