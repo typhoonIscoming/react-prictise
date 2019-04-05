@@ -23,9 +23,13 @@ class Second extends Component{
         this.printChild = this.printChild.bind(this)
     }
     getStateValue(data, e) {
+        console.log(data)
         this.setState((prevState, props) => {
             return {age: ++prevState.age}
         })
+    }
+    onCricleEvent(item) {
+        console.log('circle item', item)
     }
     handleInputChange(event) {
         const target = event.target;
@@ -46,7 +50,7 @@ class Second extends Component{
         return (
             <div className='second-container'>
                 { this.state.age >= 13 && <p>我是第二页的p标签，我最牛逼{this.state.age}</p> }
-                {map([1, 2, 3], (item, index) => <p key={index.toString()}>{item}</p>)}
+                {map([1, 2, 3], (item, index) => <p key={index.toString()} onClick={this.onCricleEvent.bind(this, item)}>{item}</p>)}
                 <button onClick={this.getStateValue.bind(this, this.state.age)}>点击</button>
                 <input
                     name="numberOfGuests"

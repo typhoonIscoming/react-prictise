@@ -12,6 +12,7 @@ import Square from '../pages/spuare.js'
 import Second from '../pages/Second'
 import Home from '../pages/Home.js'
 import Mine from '../pages/Mine'
+import Error from '../pages/Error'
 
 class MainRoute extends React.Component {
     getDefaultRouter() {
@@ -28,6 +29,7 @@ class MainRoute extends React.Component {
                     <Route path="/Second" component={Second} />
                     <Route path="/Square" component={Square} />
                     <Route path="/Mine" component={Mine} />
+                    <Route component={Error} />
                 </Switch>
             </div>
         )
