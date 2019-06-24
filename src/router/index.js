@@ -16,7 +16,7 @@ import Error from '../pages/Error'
 
 class MainRoute extends React.Component {
     getDefaultRouter() {
-        return '/Home'
+        return '/Square'
     }
     render() {
         return (
