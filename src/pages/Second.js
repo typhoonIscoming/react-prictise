@@ -40,7 +40,7 @@ class Second extends Component{
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
         // console.log(addTodo('i am text'))
-        store.dispatch(addTodo({ type: 'ADD_TODO', text: 'i am input box', payload: value }))
+        store.dispatch(addTodo({ text: 'i am input box', payload: value }))
         this.setState({
             [name]: value
         });

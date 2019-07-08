@@ -1,7 +1,5 @@
 const path = require('path')
 
-
-
 module.exports = {
     module: {
         loaders: [
@@ -13,5 +11,10 @@ module.exports = {
                 loaders:['style-loader', 'css-loader', 'sass-loader']
             }
         ]
+    },
+    resolve: {
+        alias: {
+            '@model': path.resolve(__dirname, './src/model')
+        },
     },
 }

@@ -16,12 +16,6 @@ const MyDiv = () => <div>
 </div>
 /********** */
 
-const HelloWorld = React.createClass({
-    mixins: [setIntervalMix],
-    render() {
-        return <h1>Hello World!</h1>;
-    }
-})
 
 class MyComponent extends Component {
     render() {
@@ -79,7 +73,6 @@ class Home extends React.Component {
         })
     }
     render() {
-        console.log('this.initialCounter', this.state.initialCounter)
         return (
             <div className='home-page'>
                 我是 home页面
@@ -93,7 +86,6 @@ class Home extends React.Component {
                 >
                     <h1>这是第一个元素, 计数器={this.state.counter}</h1>
                 </Executioner>
-                <HelloWorld />
             </div>
         )
     }
