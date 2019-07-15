@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-// import logo from './logo.svg';
+
 import './App.css';
 import MainRoute from './router'
 
@@ -30,11 +30,11 @@ class App extends React.Component {
     console.log('someAction', someAction)
     return (
       <div className="App">
-        <MainRoute />
+        <MainRoute {...this.props} />
         <Menu value='this is parentComponent from App' />
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchProps)(withRouter(App));
+export default withRouter(connect(mapStateToProps, mapDispatchProps)(App));

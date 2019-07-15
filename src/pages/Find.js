@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-// import browser from '../utils/browser'
 import { map } from 'lodash'
 
 import Select from '../components/select'
-// import reducer from '../model/reducer/first'
+
+
+
 import { addTodo } from '../model/action/index'
 
-// import { createStore } from 'redux';
 
-// const store = createStore(reducer)
 import store from '../model/reducer/index'
 
-class Second extends Component{
+class Find extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -24,8 +23,7 @@ class Second extends Component{
 
         this.handleInputChange = this.handleInputChange.bind(this)
         this.printChild = this.printChild.bind(this)
-        console.log('store', this.state.store)
-        console.log('props', this.props)
+        console.log('find page', props)
     }
     getStateValue(data, e) {
         console.log(data)
@@ -94,4 +92,4 @@ class Second extends Component{
 
 }
 
-export default Second
+export default Find

@@ -54,6 +54,7 @@ class Home extends React.Component {
             counter: 1,
         }
         this.callback = this.callback.bind(this)
+        console.log('home page props', props)
     }
     
     componentDidMount() {

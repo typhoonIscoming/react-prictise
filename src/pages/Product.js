@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import React, { Component } from 'react';
 
-class Square extends React.Component {
+class Product extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -20,7 +20,7 @@ class Square extends React.Component {
         return (
             <div>
                 <button
-                    className="square"
+                    className="product"
                     onClick={() => {
                         const num = parseInt(Math.random() * 100)
                         this.setState({value: `new set value ${num}`})
@@ -38,5 +38,5 @@ class Square extends React.Component {
     }
 }
 
-export default Square
+export default Product
 
