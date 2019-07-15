@@ -25,6 +25,7 @@ class Second extends Component{
         this.handleInputChange = this.handleInputChange.bind(this)
         this.printChild = this.printChild.bind(this)
         console.log('store', this.state.store)
+        console.log('props', this.props)
     }
     getStateValue(data, e) {
         console.log(data)

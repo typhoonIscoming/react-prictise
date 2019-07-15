@@ -1,7 +1,9 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
 import MainRoute from './router'
+
 import Menu from './common/menu'
 
 import { connect } from 'react-redux'
@@ -21,10 +23,9 @@ function mapDispatchProps(dispatch) {
   };
 }
 
-
 class App extends React.Component {
   render() {
-    const { first, someAction, otherActions } = this.props;
+    const { first, someAction } = this.props;
     console.log('first', first)
     console.log('someAction', someAction)
     return (
@@ -36,4 +37,4 @@ class App extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchProps)(App);
+export default connect(mapStateToProps, mapDispatchProps)(withRouter(App));

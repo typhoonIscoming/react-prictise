@@ -34,7 +34,7 @@ const MyComponent = (props) => {
                         to={item.url}
                         activeClassName='selected'
                     >
-                        {item.name + (1+1)}
+                        {item.name + (index+1)}
                     </NavLink>
                 </li>)
             }) }

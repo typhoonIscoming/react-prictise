@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 // import PropTypes from 'prop-types'
 
-const setIntervalMix = {
-    componentWillMount() {
-        console.log('this is componentWillMount in mixin')
-    },
-};
+// const setIntervalMix = {
+//     componentWillMount() {
+//         console.log('this is componentWillMount in mixin')
+//     },
+// };
 
 /**函数式组件 */
 const MyDiv = () => <div>

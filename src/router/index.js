@@ -14,10 +14,12 @@ import Home from '../pages/Home.js'
 import Mine from '../pages/Mine'
 import Error from '../pages/Error'
 
+
+
 class MainRoute extends React.Component {
-    getDefaultRouter() {
-        return '/Square'
-    }
+    // getDefaultRouter() {
+    //     return '/Square'
+    // }
     render() {
         return (
             <div className='content'>
