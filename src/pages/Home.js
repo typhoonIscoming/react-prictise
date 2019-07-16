@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { changesecond } from '../model/action/index'
 
 import '../css/home.scss';
+import imageNotice from '../images/notice.png'
 
 // 在需要使用store中的数据的组件中，如果要获取state、action和reducer，就将connect导入，connect的作用就是将state、
 // 和actionmerge到这个组件的props中。
@@ -125,6 +126,7 @@ class Home extends React.Component {
                 <p onClick={this.changeStore}>
                     点击改变store中second中的数据 number={this.props.second.number}
                 </p>
+                <img className="image-notice" src={imageNotice} alt="notice" />
             </div>
         )
     }
