@@ -1,12 +1,15 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux'
 
-import './App.css';
+
+import './App.scss';
+
+
 import MainRoute from './router'
-
 import Menu from './common/menu'
 
-import { connect } from 'react-redux'
+
 import { addTodo } from './model/action/index'
 
 

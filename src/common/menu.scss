@@ -1,0 +1,28 @@
+@import '../css/public.scss';
+
+.menu-container{
+    width: 100%;
+    height: $paddingBottom;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    &>li{
+        list-style: none;
+        flex: 1;
+        cursor: pointer;
+        &+li{
+            border-left: 1px solid #d9d9d9;
+            box-sizing: border-box;
+        }
+    }
+}
+.menu-container li a{
+    color: black;
+}
+.menu-container li a.selected{
+    color: red;
+}

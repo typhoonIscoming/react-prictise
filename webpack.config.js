@@ -9,12 +9,14 @@ module.exports = {
                 test:/\.scss$/,
                 // 使用的加载器，不可以省略加载器的后缀-loader
                 loaders:['style-loader', 'css-loader', 'sass-loader']
-            }
+            },
         ]
     },
     resolve: {
+        extensions:['.js','.jsx','.json', 'scss', 'css'],
         alias: {
-            '@model': path.resolve(__dirname, './src/model')
+            '@model': path.resolve(__dirname, './src/model'),
+            '@': path.resolve(__dirname, './src')
         },
     },
 }

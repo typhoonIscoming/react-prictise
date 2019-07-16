@@ -4,11 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import './index.css';
 import store from './model/reducer'
-// import { hashHistory } from 'react-router'
 
 import App from './App';
-// import RouterMap from './router/index.js'
+
 import * as serviceWorker from './serviceWorker';
+
+store.subscribe(() => console.log('====', store.getState()))
+if (module.hot) {
+    module.hot.accept();
+}
+// console.log('process', process.env.REACT_APP_ENV)
 
 ReactDOM.render((
     <Provider store={store}>
