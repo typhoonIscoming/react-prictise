@@ -10,13 +10,6 @@ const initState = {
 
 export default (state = initState, action) => {
     const { payload } = action
-    // var arr = [2,3,4,4,5,2,3,6];
-    // var arr2 = arr.filter(function(element,index,self){
-    //   return self.indexOf(element) === index;
-    // });
-    // console.log(arr2);
-
-
 
     switch (action.type) {
       case 'INCREMENT':

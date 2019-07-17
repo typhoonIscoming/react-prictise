@@ -24,7 +24,7 @@ function mapDispatchProps(dispatch) {
 }
 
 /**函数式组件 */
-const MyDiv = () => <div>
+const MyDiv = () => <div className="functional-component">
     this is my functional component, it's just used in lists for show datas
 </div>
 /********** */
