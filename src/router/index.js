@@ -11,6 +11,7 @@ import Find from '../pages/Find'
 import Home from '../pages/Home.js'
 import Mine from '../pages/Mine'
 import Error from '../pages/Error'
+import Message from '../pages/Message'
 
 
 
@@ -24,11 +25,12 @@ class MainRoute extends React.Component {
     render() {
         return (
             <div className='content'>
-                <Switch { ...this.props }>
+                <Switch>
                     <Route exact path="/" render={() => (<Redirect exact to="/Home" />)} />
                     <Route exact path="/home" component={Home} />
                     <Route exact path="/find" component={Find} />
                     <Route exact path="/product" component={Product} />
+                    <Route exact path="/message" component={Message} />
                     <Route exact path="/mine" component={Mine} />
                     <Route component={Error} />
                 </Switch>

@@ -15,7 +15,7 @@ class Select extends React.Component{
         this.childEvent = this.childEvent.bind(this)
     }
     getRef() {
-        console.log('print ref', this.childRef.current)
+        console.log('print ref', this.childRef)
     }
     childEvent() {
         this.props.parentEvent(this.state.menu)

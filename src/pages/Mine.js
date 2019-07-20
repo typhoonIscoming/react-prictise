@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 
-class Home extends React.Component {
+class Mine extends React.Component {
     render() {
         return (
             <div className='home-page'>
@@ -12,4 +12,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home
+export default Mine

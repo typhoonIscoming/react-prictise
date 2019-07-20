@@ -24,9 +24,14 @@ function mapDispatchProps(dispatch) {
 }
 
 /**函数式组件 */
-const MyDiv = () => <div className="functional-component">
-    this is my functional component, it's just used in lists for show datas
-</div>
+const MyDiv = (props) => {
+    console.log('functional props', props)
+    return (
+        <div className="functional-component">
+            this is my functional component, it's just used in lists for show datas
+        </div>
+    )
+}
 /********** */
 
 
@@ -78,6 +83,7 @@ class Executioner extends Component {
 }
 
 class Home extends React.Component {
+    
     constructor(props) {
         super(props)
         this.state = {
@@ -86,6 +92,7 @@ class Home extends React.Component {
         }
         this.callback = this.callback.bind(this)
         this.changeStore = this.changeStore.bind(this)
+        this.creatRefElement = React.createRef()
     }
     
     componentDidMount() {
@@ -94,6 +101,13 @@ class Home extends React.Component {
         el.style.color = 'red'
         // console.log('el', el)
         this.refs['pag-p-two'].style.color = 'greenyellow'
+    }
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log('getSnapshotBeforeUpdate');
+        return 'react16';
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('snapshot = ', snapshot);
     }
     doSomething() {
         console.log('reactDom\'s instance function')
@@ -109,13 +123,25 @@ class Home extends React.Component {
         this.props.changeAction({ type: 'CHANGESECOND', payload: num })
         console.log('home\'s props', this.props)
     }
+
+    focusTextInput = () => {
+        // 通过this.textInput 访问DOM节点
+        this.textInput.focus();
+    }
+    getCreateRef = () => {
+        console.log('this.creatRefElement', this.creatRefElement.current)
+        console.log(this.state)
+    }
+    static defaultProps = {
+        name: 'cxy'
+    }
     render() {
         return (
             <div className='home-page'>
                 我是 home页面
                 <p className="pag-p">this is new line</p>
                 <p className="pag-p-two" ref="pag-p-two">this is refs pag</p>
-                <MyDiv />
+                <MyDiv name="xie" address="shanghai" />
                 <MyComponent ref="langBtnList" />
                 <Executioner
                     counter={ this.state.counter }
@@ -127,9 +153,21 @@ class Home extends React.Component {
                     点击改变store中second中的数据 number={this.props.second.number}
                 </p>
                 <img className="image-notice" src={imageNotice} alt="notice" />
+                <div>
+                    <p> 定义refs的方法：回调函数，点击button，输入框聚焦 </p>
+                    <input className="inputStyle" type="text" ref={(textInput) => this.textInput = textInput} /> 
+                    <button onClick={this.focusTextInput}>focus</button>
+                </div>
+                <p
+                    ref={this.creatRefElement}
+                    onClick={this.getCreateRef}
+                >
+                    点击我，获取通过createRef()得到的元素
+                </p>
             </div>
         )
     }
+
 }
 
 Home.defaultProps = {

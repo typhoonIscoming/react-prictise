@@ -28,12 +28,12 @@ function mapDispatchProps(dispatch) {
 
 class App extends React.Component {
   render() {
-    const { first, someAction } = this.props;
-    console.log('first', first)
-    console.log('someAction', someAction)
+    // const { first, someAction } = this.props;
+    // console.log('first', first)
+    // console.log('someAction', someAction)
     return (
       <div className="App">
-        <MainRoute {...this.props} />
+        <MainRoute />
         <Menu value='this is parentComponent from App' />
       </div>
     );

@@ -1,8 +1,12 @@
+.inputStyle{
+    outline-color: red;
+    border: 1px solid black;
+}
+
 .home-page{
     .mycomponent-box{
         .home-component-input{
-            outline-color: red;
-            border: 1px solid black;
+            @extend .inputStyle;
         }
     }
     .image-notice{
