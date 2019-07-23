@@ -21,8 +21,6 @@ export const changesecond = (conf) => ({
 
 export const changeMessage = (submit) => {
     return dispatch => {
-        console.log('submit', submit)
-        console.log('dispatch', dispatch)
         return fetch('/list').then(res => {
             console.log('res==', res)
         })
