@@ -1,0 +1,8 @@
+@import './public.scss';
+
+.message-page-container{
+    overflow: hidden;
+    .el-margin-20{
+        margin: $marginTop 0;
+    }
+}

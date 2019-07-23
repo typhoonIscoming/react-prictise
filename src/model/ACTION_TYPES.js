@@ -1,0 +1,2 @@
+export const ADD_MESSAGES = 'ADD_MESSAGES'
+export const CHANGE_TITLE = 'CHANGE_TITLE'

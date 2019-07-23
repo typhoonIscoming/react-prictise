@@ -14,7 +14,6 @@ import { addTodo } from './model/action/index'
 
 
 function mapStateToProps(state) {
-  console.log('state', state)
   return {
     first: state.first
   };
@@ -28,9 +27,6 @@ function mapDispatchProps(dispatch) {
 
 class App extends React.Component {
   render() {
-    // const { first, someAction } = this.props;
-    // console.log('first', first)
-    // console.log('someAction', someAction)
     return (
       <div className="App">
         <MainRoute />
