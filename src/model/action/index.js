@@ -1,11 +1,9 @@
 import { fetch } from 'cross-fetch'
 
-// 定义action常量
-const ADD_TODO = 'ADD_TODO'
-const CHANGESECOND = 'CHANGESECOND'
-// import {
-//     ADD_MESSAGES
-// } from '../ACTION_TYPES'
+import {
+    ADD_TODO, CHANGESECOND, CHANGINGMESSAGELIST, CHANGEDMESSAGELIST, CHANGEfAILED
+} from '../ACTION_TYPES'
+
 
 export const addTodo = (conf) => { // text是action的描述信息
     return {
@@ -21,8 +19,14 @@ export const changesecond = (conf) => ({
 
 export const changeMessage = (submit) => {
     return dispatch => {
-        return fetch('/list').then(res => {
-            console.log('res==', res)
-        })
+        // dispatch({ type: CHANGINGMESSAGELIST })
+        return fetch('/list').then(res => res.json()
+            .then(result => {
+                dispatch({ type: CHANGEDMESSAGELIST, payload: result })
+            }, 
+            err => {
+                dispatch({ type: CHANGEfAILED, payload: err })
+            })
+        )
     }
 }

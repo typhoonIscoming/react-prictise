@@ -1,5 +1,5 @@
 import {
-    ADD_MESSAGES
+    CHANGINGMESSAGELIST, CHANGEDMESSAGELIST, CHANGEfAILED
 } from '../ACTION_TYPES'
 
 const initState = {
@@ -11,8 +11,13 @@ const initState = {
 export default (state = initState, action) => {
     const { type, payload } = action
     switch(type) {
-        case ADD_MESSAGES:
-            return { ...state, list: payload }
+        case CHANGINGMESSAGELIST:
+            return { ...state, status: 1 }
+        case CHANGEDMESSAGELIST:
+            const store = { ...state, status: 2, list: Object.assign([], [{ ...payload }]) }
+            return store
+        case CHANGEfAILED:
+            return { ...state, status: 0 }
         default:
             return { ...state }
     }

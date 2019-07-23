@@ -14,22 +14,31 @@ class Message extends Component{
             
         }
         this.getData = this.getData.bind(this)
-        console.log('message', this.props)
     }
     getData() {
-        this.props.changeMessage(123)
+        this.props.changeMessage()
     }
     render() {
         return (
             <div className="message-page-container">
                 <p className="el-margin-20" onClick={this.getData}>去掉用异步的action调用接口</p>
+                <div>
+                    {this.props.message.list.map((element, index) => {
+                        return (
+                            <div key={index}>
+                                <p>姓名：{element.name}</p>
+                                <p>年龄：{element.number}</p>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         )
     }
 }
 
 function mapStateToProps(store) {
-    return store
+    return { message: store.message }
 }
 function mapDispatchProps(dispatch) {
     return {

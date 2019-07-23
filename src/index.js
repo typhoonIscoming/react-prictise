@@ -9,7 +9,7 @@ import App from './App';
 
 import * as serviceWorker from './serviceWorker';
 
-store.subscribe(() => console.log('====', store.getState()))
+// store.subscribe(() => console.log('====', store.getState()))
 if (module.hot) {
     module.hot.accept();
 }
