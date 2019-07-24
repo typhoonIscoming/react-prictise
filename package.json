@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^3.20.5",
     "cross-fetch": "^3.0.4",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.11",
@@ -20,8 +21,8 @@
   },
   "scripts": {
     "dev": "yarn start",
-    "start": "cross-env REACT_APP_ENV=develop react-scripts start",
-    "build": "cross-env REACT_APP_ENV=prod react-scripts build",
+    "start": "cross-env REACT_APP_ENV=develop react-app-rewired start",
+    "build": "cross-env REACT_APP_ENV=prod react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -36,6 +37,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "cross-env": "^5.2.0"
+    "babel-plugin-import": "^1.12.0",
+    "cross-env": "^5.2.0",
+    "customize-cra": "^0.4.1",
+    "less-loader": "^5.0.0",
+    "react-app-rewired": "^2.1.3"
   }
 }

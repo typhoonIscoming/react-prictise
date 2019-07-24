@@ -26,7 +26,11 @@ function mapDispatchProps(dispatch) {
 }
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
+    console.log(this.props)
     return (
       <div className="App">
         <MainRoute />

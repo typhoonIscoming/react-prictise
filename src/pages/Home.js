@@ -92,6 +92,7 @@ class Home extends React.Component {
         }
         this.callback = this.callback.bind(this)
         this.changeStore = this.changeStore.bind(this)
+        this.goMine = this.goMine.bind(this)
         this.creatRefElement = React.createRef()
     }
     
@@ -132,6 +133,9 @@ class Home extends React.Component {
         console.log('this.creatRefElement', this.creatRefElement.current)
         console.log(this.state)
     }
+    goMine() {
+        this.props.history.push({ pathname: '/mine', query: { name: 'jack' } })
+    }
     static defaultProps = {
         name: 'cxy'
     }
@@ -164,6 +168,7 @@ class Home extends React.Component {
                 >
                     点击我，获取通过createRef()得到的元素
                 </p>
+                <p onClick={this.goMine}>点击我，跳转到我的页面</p>
             </div>
         )
     }
