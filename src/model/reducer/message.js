@@ -1,11 +1,12 @@
 import {
-    CHANGINGMESSAGELIST, CHANGEDMESSAGELIST, CHANGEfAILED
+    CHANGINGMESSAGELIST, CHANGEDMESSAGELIST, CHANGEfAILED, CHANGECOUNTER
 } from '../ACTION_TYPES'
 
 const initState = {
     list: [],
     title: '',
     status: 0,
+    counter: 0,
 }
 
 export default (state = initState, action) => {
@@ -18,6 +19,8 @@ export default (state = initState, action) => {
             return store
         case CHANGEfAILED:
             return { ...state, status: 0 }
+        case CHANGECOUNTER:
+            return { ...state, counter: payload }
         default:
             return { ...state }
     }

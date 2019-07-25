@@ -1,7 +1,7 @@
 import { fetch } from 'cross-fetch'
 
 import {
-    ADD_TODO, CHANGESECOND, CHANGINGMESSAGELIST, CHANGEDMESSAGELIST, CHANGEfAILED
+    ADD_TODO, CHANGESECOND, CHANGEDMESSAGELIST, CHANGEfAILED, CHANGECOUNTER
 } from '../ACTION_TYPES'
 
 
@@ -19,7 +19,6 @@ export const changesecond = (conf) => ({
 
 export const changeMessage = (submit) => {
     return dispatch => {
-        // dispatch({ type: CHANGINGMESSAGELIST })
         return fetch('/list').then(res => res.json()
             .then(result => {
                 dispatch({ type: CHANGEDMESSAGELIST, payload: result })
@@ -28,5 +27,12 @@ export const changeMessage = (submit) => {
                 dispatch({ type: CHANGEfAILED, payload: err })
             })
         )
+    }
+}
+
+export const changeCounter = (num = 1) => {
+    return {
+        type: CHANGECOUNTER,
+        payload: num
     }
 }
