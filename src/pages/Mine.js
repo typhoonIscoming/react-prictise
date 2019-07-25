@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import React, { Component } from 'react';
 
-import Button from 'antd/es/button';
+import { Button } from 'antd';
 
 import '../css/mine.scss'
 

@@ -28,6 +28,9 @@ function mapDispatchProps(dispatch) {
 class App extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      ...props,
+    }
   }
   render() {
     console.log(this.props)
