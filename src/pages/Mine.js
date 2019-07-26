@@ -12,10 +12,6 @@ import '../css/mine.scss'
 
 let LazyLoad = React.lazy(() => import('../components/LazyLoad'))
 
-const MineContext = React.createContext({
-    value: 'this is Mine context',
-    text: '这是Mine组件的context',
-})
 
 
 class Mine extends React.Component {
@@ -24,11 +20,10 @@ class Mine extends React.Component {
         this.state = {
             timer: null,
         }
-        
     }
     showMessage() {
         // message.info('这是antd的message组件')
-        console.log('context', this.context)
+        console.log('context', this.props)
         this.timer = setInterval(() => {
             const { counter } = this.props.message
             // console.log(counter)
@@ -72,6 +67,5 @@ function mapDispatchProps(dispatch) {
     return { changeCounter: (params) => dispatch(changeCounter(params)) }
 }
 
-Mine.contextType = MineContext
 
 export default connect(mapStateToProps, mapDispatchProps)(Mine)

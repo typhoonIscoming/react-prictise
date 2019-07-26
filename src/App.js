@@ -15,6 +15,10 @@ import ErrorBoundary from './components/ErrorBoundary'
 
 import { addTodo } from './model/action/index'
 
+const AppContext = React.createContext({
+  value: 'this is Mine context',
+  text: '这是Mine组件的context',
+})
 
 function mapStateToProps(state) {
   return {
@@ -29,24 +33,26 @@ function mapDispatchProps(dispatch) {
 }
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor(props, context) {
+    super(props, context)
     this.state = {
       ...props,
     }
   }
   render() {
+    console.log(this.context)
     return (
-      <ErrorBoundary>
+      <AppContext.Provider value={this.context}>
       <div className="App">
-        
+        <ErrorBoundary>
           <MainRoute />
-        
+        </ErrorBoundary>
         <Menu value='this is parentComponent from App' />
       </div>
-      </ErrorBoundary>
+      </AppContext.Provider>
     );
   }
 }
+App.contextType = AppContext
 
 export default withRouter(connect(mapStateToProps, mapDispatchProps)(App));
