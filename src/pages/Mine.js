@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import { connect } from 'react-redux'
 
 import { Button, message, Progress } from 'antd';
@@ -10,16 +10,25 @@ import {
 
 import '../css/mine.scss'
 
+let LazyLoad = React.lazy(() => import('../components/LazyLoad'))
+
+const MineContext = React.createContext({
+    value: 'this is Mine context',
+    text: '这是Mine组件的context',
+})
+
+
 class Mine extends React.Component {
-    constructor(props) {
-        super(props)
+    constructor(props, context) {
+        super(props, context)
         this.state = {
             timer: null,
         }
-        console.log(props)
+        
     }
     showMessage() {
         // message.info('这是antd的message组件')
+        console.log('context', this.context)
         this.timer = setInterval(() => {
             const { counter } = this.props.message
             // console.log(counter)
@@ -31,6 +40,9 @@ class Mine extends React.Component {
             }
         }, 200)
         
+    }
+    componentDidMount() {
+        console.log(this.context)
     }
     componentWillUnmount() {
         if(this.timer) {
@@ -46,6 +58,9 @@ class Mine extends React.Component {
                 <Button type="primary" onClick={this.showMessage.bind(this)}>这是antd组件库的button </Button>
                 <p>分割线</p>
                 <Progress type="circle" percent={counter} />
+                <Suspense fallback={<div>loading...</div>}>
+                    <LazyLoad />
+                </Suspense>
             </div>
         )
     }
@@ -56,4 +71,7 @@ function mapStateToProps(state) {
 function mapDispatchProps(dispatch) {
     return { changeCounter: (params) => dispatch(changeCounter(params)) }
 }
+
+Mine.contextType = MineContext
+
 export default connect(mapStateToProps, mapDispatchProps)(Mine)
