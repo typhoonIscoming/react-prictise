@@ -141,7 +141,7 @@ class Home extends React.Component {
     }
     render() {
         return (
-            <div className='home-page'>
+            <div className='home-page page-overflow-y-scroll'>
                 我是 home页面
                 <p className="pag-p">this is new line</p>
                 <p className="pag-p-two" ref="pag-p-two">this is refs pag</p>

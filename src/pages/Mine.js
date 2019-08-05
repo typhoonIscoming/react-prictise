@@ -48,7 +48,7 @@ class Mine extends React.Component {
     render() {
         const { counter } = this.props.message
         return (
-            <div className='home-page'>
+            <div className='home-page page-overflow-y-scroll'>
                 我是 Mine页面
                 <Button type="primary" onClick={this.showMessage.bind(this)}>这是antd组件库的button </Button>
                 <p>分割线</p>
