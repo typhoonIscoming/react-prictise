@@ -19,7 +19,7 @@ export const changesecond = (conf) => ({
 
 export const changeMessage = (submit) => {
     return dispatch => {
-        return fetch('/list').then(res => res.json()
+        return fetch('/api/list').then(res => res.json()
             .then(result => {
                 dispatch({ type: CHANGEDMESSAGELIST, payload: result })
             }, 

@@ -2,7 +2,7 @@
 import React, { Component, Suspense } from 'react';
 import { connect } from 'react-redux'
 
-import { Button, message, Progress } from 'antd';
+import { Button, Progress } from 'antd';
 
 import {
     changeCounter
