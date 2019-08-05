@@ -12,7 +12,7 @@ import Home from '../pages/Home.js'
 import Mine from '../pages/Mine'
 import Error from '../pages/Error'
 import Message from '../pages/Message'
-
+import Login from '../pages/login'
 
 
 class MainRoute extends React.Component {
@@ -32,6 +32,7 @@ class MainRoute extends React.Component {
                     <Route exact path="/product" component={Product} />
                     <Route exact path="/message" component={Message} />
                     <Route exact path="/mine" component={Mine} />
+                    <Route exact path="/login" component={Login} />
                     <Route component={Error} />
                 </Switch>
             </div>

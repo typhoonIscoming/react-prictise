@@ -49,7 +49,7 @@ class Mine extends React.Component {
         const { counter } = this.props.message
         return (
             <div className='home-page'>
-                我是 Mine页面
+                <p>我是 Mine页面</p>
                 <Button type="primary" onClick={this.showMessage.bind(this)}>这是antd组件库的button </Button>
                 <p>分割线</p>
                 <Progress type="circle" percent={counter} />
