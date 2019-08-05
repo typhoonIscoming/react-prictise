@@ -20,7 +20,7 @@ class Message extends Component{
     }
     render() {
         return (
-            <div className="message-page-container page-overflow-y-scroll">
+            <div className="message-page-container">
                 <p className="el-margin-20" onClick={this.getData}>去掉用异步的action调用接口</p>
                 <div>
                     {this.props.message.list.map((element, index) => {

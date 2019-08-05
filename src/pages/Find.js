@@ -51,7 +51,7 @@ class Find extends Component{
     render() {
         const arr = [ {name: 'zhangsan', age: 10 }, { name: 'lisi', age: 15 }, { name: 'wangwu', age: 20 } ]
         return (
-            <div className='second-container page-overflow-y-scroll'>
+            <div className='second-container'>
                 { this.state.age >= 13 && <p>我是第二页的p标签，我最牛逼{this.state.age}</p> }
                 {map([1, 2, 3], (item, index) => <p key={index.toString()} onClick={this.onCricleEvent.bind(this, item)}>{item}</p>)}
                 <button onClick={this.getStateValue.bind(this, this.state.age)}>点击</button>

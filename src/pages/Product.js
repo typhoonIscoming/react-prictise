@@ -18,7 +18,7 @@ class Product extends React.Component {
     }
     render() {
         return (
-            <div className="page-overflow-y-scroll">
+            <div className="product-page">
                 <button
                     className="product"
                     onClick={() => {
