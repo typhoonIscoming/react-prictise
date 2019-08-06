@@ -10,19 +10,19 @@ import history from '../images/mine-images/historyToday.png'
 import { getLaugh, getHistory } from '../model/action'
 
 const ShowElement = (props) => {
-    const { status, result } = props
+    const { status, result, error } = props
     if(status === 0) {
         return ( <Icon type="loading" /> )
     } else if(status === 1) {
         return map(result, (item, index) => {
-            return (<div className="content-item">
+            return (<div className="content-item" key={ index }>
                 <p>{ item.title }</p>
-                <img src={ item.img } key={ index } alt={ item.title } />
+                <img src={ item.img }  alt={ item.title } />
             </div>)
         })
     } else if(status === 2) {
         return (
-            <div>获取数据失败</div>
+            <div>{ error }</div>
         )
     } else {
         return (<div></div>)
@@ -45,9 +45,8 @@ class Find extends Component{
         else if(index === 1) this.props.getHistory()
     }
     render() {
-        const { status, result } = this.props.find
+        const { status, result, error } = this.props.find
         const menu = this.state.menu
-        
         return (
             <div className='find-container'>
                 <ul className="functional-menu">
@@ -64,6 +63,7 @@ class Find extends Component{
                     <ShowElement
                         status={ status }
                         result={ result }
+                        error={ error }
                     />
                 </div>
             </div>

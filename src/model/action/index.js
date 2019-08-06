@@ -53,9 +53,9 @@ export const getLaugh = (data) => {
             &showapi_sign=${appsign}&showapi_timestamp=${+new Date()}`)
             .then(res => res.json())
             .then(result => {
-                console.log('result===', result)
-                const { contentlist } = result.showapi_res_body
-                dispatch({ type: types.GETHISTORYTODAYSUCCESS, payload: contentlist })
+                const { list } = result.showapi_res_body
+                if(result.showapi_res_code !== -2) dispatch({ type: types.GETHISTORYTODAYSUCCESS, payload: list })
+                else dispatch({ type: types.GETHISTORYTODAYFAILED, payload: result.showapi_res_error })
             })
     }
 }
@@ -67,9 +67,9 @@ export const getHistory = () => {
             &showapi_sign=${appsign}&showapi_timestamp=${+new Date()}`)
             .then(res => res.json())
             .then(result => {
-                console.log('result===', result)
                 const { list } = result.showapi_res_body
-                dispatch({ type: types.GETHISTORYTODAYSUCCESS, payload: list })
+                if(result.showapi_res_code !== -2) dispatch({ type: types.GETHISTORYTODAYSUCCESS, payload: list })
+                else dispatch({ type: types.GETHISTORYTODAYFAILED, payload: result.showapi_res_error })
             })
     }
 }
