@@ -13,7 +13,6 @@ class MyComponent extends Component {
         this.state = {
             ...props,
         }
-        // console.log('自组建打印父组件的props', props)
     }
     render() {
         return (
@@ -30,7 +29,7 @@ class MyComponent extends Component {
                                     exact
                                     activeClassName='selected'
                                 >
-                                    {item.name + (index+1)}
+                                    { item.name }
                                 </NavLink>
                             </li>)
                         }

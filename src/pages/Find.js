@@ -1,14 +1,34 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { map } from 'lodash'
 
-import Select from '../components/select'
+import { Icon } from 'antd-mobile';
 
+import '../css/find.scss'
+import history from '../images/mine-images/historyToday.png'
 
+import { getLaugh, getHistory } from '../model/action'
 
-import { addTodo } from '../model/action/index'
+const ShowElement = (props) => {
+    const { status, result } = props
+    if(status === 0) {
+        return ( <Icon type="loading" /> )
+    } else if(status === 1) {
+        return map(result, (item, index) => {
+            return (<div className="content-item">
+                <p>{ item.title }</p>
+                <img src={ item.img } key={ index } alt={ item.title } />
+            </div>)
+        })
+    } else if(status === 2) {
+        return (
+            <div>获取数据失败</div>
+        )
+    } else {
+        return (<div></div>)
+    }
+}
 
-
-import store from '../model/reducer/index'
 
 class Find extends Component{
     constructor(props) {
@@ -17,79 +37,49 @@ class Find extends Component{
             name: 'zhangsan',
             age: 10,
             numberOfGuests: 3,
-            ...props,
-            store: {...store.getState()},
+            menu: [{ title: '笑话大全', img: history }, { title: '历史上的今天', img: history }],
         }
-
-        this.handleInputChange = this.handleInputChange.bind(this)
-        this.printChild = this.printChild.bind(this)
-        console.log('find page', props)
     }
-    getStateValue(data, e) {
-        console.log(data)
-        this.setState((prevState, props) => {
-            return {age: ++prevState.age}
-        })
-    }
-    onCricleEvent(item) {
-        console.log('circle item', item)
-    }
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-        // console.log(addTodo('i am text'))
-        store.dispatch(addTodo({ text: 'i am input box', payload: value }))
-        this.setState({
-            [name]: value
-        });
-        // console.log('----', name, value, browser())
-    }
-    printChild(data) {
-        console.log('this is from child component data and print in parent', data)
+    getData(index) {
+        if(index === 0) this.props.getLaugh()
+        else if(index === 1) this.props.getHistory()
     }
     render() {
-        const arr = [ {name: 'zhangsan', age: 10 }, { name: 'lisi', age: 15 }, { name: 'wangwu', age: 20 } ]
+        const { status, result } = this.props.find
+        const menu = this.state.menu
+        
         return (
-            <div className='second-container'>
-                { this.state.age >= 13 && <p>我是第二页的p标签，我最牛逼{this.state.age}</p> }
-                {map([1, 2, 3], (item, index) => <p key={index.toString()} onClick={this.onCricleEvent.bind(this, item)}>{item}</p>)}
-                <button onClick={this.getStateValue.bind(this, this.state.age)}>点击</button>
-                <input
-                    name="numberOfGuests"
-                    type="number"
-                    placeholder='输入框'
-                    value={this.state.numberOfGuests}
-                    onChange={this.handleInputChange} />
-                <Select optionList={arr} parentEvent={this.printChild}>
-                    <div className='select-slot'>i am the slot in component of Select</div>
-                </Select>
+            <div className='find-container'>
+                <ul className="functional-menu">
+                    { map(menu, (item, index) => {
+                        return (
+                            <li key={ index } onClick={ this.getData.bind(this, index) }>
+                                <p>{ item.title }</p>
+                                <img src={item.img} alt="img" />
+                            </li>
+                        )
+                    }) }
+                </ul>
+                <div className="search-result">
+                    <ShowElement
+                        status={ status }
+                        result={ result }
+                    />
+                </div>
             </div>
         )
     }
-    // componentWillMount() {
-    //     console.log('componentWillMount,', new Date().getTime())
-    // }
-    // componentDidMount() {
-    //     console.log('componentDidMount,', new Date().getTime())
-    // }
-    // componentWillReceiveProps() {
-    //     console.log('componentWillReceiveProps,', new Date().getTime())
-    // }
-    // shouldComponentUpdate(newProps, newState) {
-    //     console.log('shouldComponentUpdate,', new Date().getTime())
-    //     return true;
-    // }
-    // componentWillUpdate(nextProps, nextState) {
-    //     console.log('componentWillUpdate', new Date().getTime());
-    // }
-    // componentDidUpdate(prevProps, prevState) {
-    //     console.log('componentDidUpdate,', new Date().getTime())
-    // }
-    // componentWillUnmount() {
-    //     console.log('componentWillUnmount,', new Date().getTime())
-    // }
 
 }
 
-export default Find
+function mapStateToProps(state) {
+    return { find: state.find }
+}
+function mapDispatchProps(dispatch) {
+    return {
+        getLaugh: (params) => dispatch(getLaugh()),
+        getHistory: () => dispatch(getHistory())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchProps)(Find)

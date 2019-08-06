@@ -40,7 +40,6 @@ class App extends React.Component {
     }
   }
   render() {
-    console.log(this.context)
     return (
       <AppContext.Provider value={this.context}>
       <div className="App">

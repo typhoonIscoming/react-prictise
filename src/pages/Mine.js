@@ -2,7 +2,7 @@
 import React, { Component, Suspense } from 'react';
 import { connect } from 'react-redux'
 
-import { Button, Progress } from 'antd';
+import { fetch } from 'cross-fetch'
 
 import {
     changeCounter
@@ -19,14 +19,12 @@ class Mine extends React.Component {
         super(props, context)
         this.state = {
             timer: null,
+            
         }
     }
     showMessage() {
-        // message.info('这是antd的message组件')
-        console.log('context', this.props)
         this.timer = setInterval(() => {
             const { counter } = this.props.message
-            // console.log(counter)
             if(counter < 100) {
                 this.props.changeCounter(counter + 1)
             } else {
@@ -36,8 +34,20 @@ class Mine extends React.Component {
         }, 200)
         
     }
+    getTodayHistory() {
+        fetch('https://route.showapi.com/341-2?maxResult=1&page=1&showapi_appid=43725&showapi_timestamp=20190806102527&showapi_sign=b77090587b5b47359599d7b63b094f98', {
+            mode: 'cors',
+            method: 'get',
+            redirect: 'follow',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+        }).then(res => res.json().then((result) => {
+            console.log('result', result)
+        }))
+    }
     componentDidMount() {
-        console.log(this.context)
     }
     componentWillUnmount() {
         if(this.timer) {
@@ -46,16 +56,15 @@ class Mine extends React.Component {
         }
     }
     render() {
-        const { counter } = this.props.message
         return (
             <div className='home-page'>
                 <p>我是 Mine页面</p>
-                <Button type="primary" onClick={this.showMessage.bind(this)}>这是antd组件库的button </Button>
-                <p>分割线</p>
-                <Progress type="circle" percent={counter} />
                 <Suspense fallback={<div>loading...</div>}>
                     <LazyLoad />
                 </Suspense>
+                <p onClick={ this.getTodayHistory }>
+                    点击我，获取历史上的今天发生的事
+                </p>
             </div>
         )
     }

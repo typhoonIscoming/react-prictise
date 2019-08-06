@@ -111,7 +111,7 @@ class Home extends React.Component {
         console.log('snapshot = ', snapshot);
     }
     doSomething() {
-        console.log('reactDom\'s instance function')
+        // console.log('reactDom\'s instance function')
     }
     callback() {
         let counter = this.state.counter

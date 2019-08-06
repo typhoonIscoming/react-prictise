@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^3.20.5",
+    "antd-mobile": "^2.2.14",
     "cross-fetch": "^3.0.4",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.11",
