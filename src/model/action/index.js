@@ -73,3 +73,17 @@ export const getHistory = () => {
             })
     }
 }
+
+export const getStory = () => {
+    return dispatch => {
+        dispatch({ type: types.GETHISTORYTODAY })
+        return fetch(`https://route.showapi.com/1700-1?showapi_appid=${appid}
+            &showapi_sign=${appsign}&showapi_timestamp=${+new Date()}`)
+            .then(res => res.json())
+            .then(result => {
+                const { list } = result.showapi_res_body
+                if(result.showapi_res_code !== -2) dispatch({ type: types.GETHISTORYTODAYSUCCESS, payload: list })
+                else dispatch({ type: types.GETHISTORYTODAYFAILED, payload: result.showapi_res_error })
+            })
+    }
+}
