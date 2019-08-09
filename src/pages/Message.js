@@ -2,10 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 // import { fetch } from 'cross-fetch'
 
+
 // 引入本页面的样式
 import '../css/message.scss'
 
 import { changeMessage } from '../model/action'
+
+
+
 
 class Message extends Component{
     constructor(props) {
@@ -32,6 +36,7 @@ class Message extends Component{
                         )
                     })}
                 </div>
+                <div className="background-sprite"></div>
             </div>
         )
     }

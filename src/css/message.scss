@@ -1,8 +1,12 @@
 @import './public.scss';
+@import '../images/css/sprite.scss';
 
 .message-page-container{
     overflow: hidden;
     .el-margin-20{
         margin: $marginTop 0;
+    }
+    .background-sprite{
+        @include sprite($bankuserinfo)
     }
 }

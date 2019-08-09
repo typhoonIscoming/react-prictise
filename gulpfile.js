@@ -32,7 +32,7 @@ gulp.task('default', function () {
       const relativePath = path.relative(ICON_SOURCE, dir)
       const spirteDest = path.resolve(SPRITE_DEST, relativePath)
       // scss文件中引用的sprite图片地址
-      const scssImgDest = path.relative(__dirname, spirteDest).replace(/^src\//ig, '~')
+      const scssImgDest = path.relative(__dirname, spirteDest).replace(/^src\//ig, '~/')
       // scss文件存放的地址
       const scssDest = path.resolve(SPRITE_SCSS, relativePath)
       gulp.src(`${dir}/*.png`)
