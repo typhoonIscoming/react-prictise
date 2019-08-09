@@ -42,12 +42,12 @@ class App extends React.Component {
   render() {
     return (
       <AppContext.Provider value={this.context}>
-      <div className="App">
-        <ErrorBoundary>
-          <MainRoute />
-        </ErrorBoundary>
-        <Menu value='this is parentComponent from App' />
-      </div>
+        <div className="App">
+          <ErrorBoundary>
+            <MainRoute />
+          </ErrorBoundary>
+          <Menu value='this is parentComponent from App' />
+        </div>
       </AppContext.Provider>
     );
   }

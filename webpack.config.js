@@ -13,7 +13,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions:['.js','.jsx','.json', 'scss', 'less', 'css'],
+        extensions:['.js','.jsx','.json', 'scss', 'css'],
         alias: {
             '@model': path.resolve(__dirname, './src/model'),
             '@': path.resolve(__dirname, './src')

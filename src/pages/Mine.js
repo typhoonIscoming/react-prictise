@@ -2,8 +2,6 @@
 import React, { Component, Suspense } from 'react';
 import { connect } from 'react-redux'
 
-import { fetch } from 'cross-fetch'
-
 import {
     changeCounter
 } from '../model/action'
@@ -34,19 +32,6 @@ class Mine extends React.Component {
         }, 200)
         
     }
-    getTodayHistory() {
-        fetch('https://route.showapi.com/341-2?maxResult=1&page=1&showapi_appid=43725&showapi_timestamp=20190806102527&showapi_sign=b77090587b5b47359599d7b63b094f98', {
-            mode: 'cors',
-            method: 'get',
-            redirect: 'follow',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            },
-        }).then(res => res.json().then((result) => {
-            console.log('result', result)
-        }))
-    }
     componentDidMount() {
     }
     componentWillUnmount() {
@@ -62,9 +47,6 @@ class Mine extends React.Component {
                 <Suspense fallback={<div>loading...</div>}>
                     <LazyLoad />
                 </Suspense>
-                <p onClick={ this.getTodayHistory }>
-                    点击我，获取历史上的今天发生的事
-                </p>
             </div>
         )
     }
