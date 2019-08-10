@@ -11,7 +11,7 @@ module.exports = {
                 options: {
                     limit: 1000,
                     outputPath: 'build',
-                    name: utils.assetsPath('static/images/[name].[hash:7].[ext]')
+                    name: utils.assetsPath('static/img/[name].[hash:7].[ext]')
                 }
             },
             {
@@ -34,7 +34,7 @@ module.exports = {
     },
     plugin: [
         new ExtractTextPlugin({
-            filename: utils.assetsPath('css/[name].[contenthash].css'),
+            filename: utils.assetsPath('static/css/[name].[contenthash].css'),
             // Setting the following option to `false` will not extract CSS from codesplit chunks.
             // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
             // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`, 

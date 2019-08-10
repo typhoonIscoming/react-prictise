@@ -5,7 +5,7 @@ import { map } from 'lodash'
 import { Icon } from 'antd-mobile';
 
 import '../css/find.scss'
-import history from '../images/mine/add.png'
+import history from '../assets/mine/add.png'
 
 import { getLaugh, getHistory } from '../model/action'
 

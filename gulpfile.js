@@ -8,11 +8,11 @@ const mkdirp = require('mkdirp')
 const rmfr = require('rmfr')
 
 // 待处理的icon图片根目录
-const ICON_SOURCE = path.resolve(__dirname, 'src/images/mine')
+const ICON_SOURCE = path.resolve(__dirname, 'src/assets/mine/')
 // 生成的sprite图片根目录
-const SPRITE_DEST = path.resolve(__dirname, 'src/images/sprites')
+const SPRITE_DEST = path.resolve(__dirname, 'src/assets/sprites/')
 // 生成的scss文件根根目录
-const SPRITE_SCSS = path.resolve(__dirname, 'src/images/css')
+const SPRITE_SCSS = path.resolve(__dirname, 'src/assets/css/')
 
 if(!fs.existsSync(SPRITE_DEST)) {
   mkdirp.sync(SPRITE_DEST)
@@ -32,7 +32,8 @@ gulp.task('default', function () {
       const relativePath = path.relative(ICON_SOURCE, dir)
       const spirteDest = path.resolve(SPRITE_DEST, relativePath)
       // scss文件中引用的sprite图片地址
-      const scssImgDest = path.relative(__dirname, spirteDest).replace(/^src\//ig, '~/')
+      const scssImgDest = path.relative(__dirname, spirteDest).replace(/^src\//g, '~/')
+      // const scssImgDest = path.relative(__dirname, spirteDest).replace(/src/g, '~')
       // scss文件存放的地址
       const scssDest = path.resolve(SPRITE_SCSS, relativePath)
       gulp.src(`${dir}/*.png`)

@@ -1,5 +1,5 @@
 @import './public.scss';
-@import '../images/css/sprite.scss';
+@import '../assets/css/sprite.scss';
 
 .message-page-container{
     overflow: hidden;
@@ -7,6 +7,6 @@
         margin: $marginTop 0;
     }
     .background-sprite{
-        @include sprite($bankuserinfo)
+        @include sprite($add)
     }
 }

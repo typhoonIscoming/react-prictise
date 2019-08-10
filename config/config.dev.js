@@ -1,9 +1,9 @@
 
 module.exports = {
     dev: {
-        assetsSubDirectory: 'build',
+        assetsSubDirectory: 'static',
     },
     build: {
-        assetsSubDirectory: 'build',
+        assetsSubDirectory: 'static',
     },
 }
