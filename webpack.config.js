@@ -11,7 +11,7 @@ module.exports = {
                 options: {
                     limit: 1000,
                     outputPath: 'build',
-                    name: utils.assetsPath('static/img/[name].[hash:7].[ext]')
+                    name: utils.assetsPath('static/images/[name].[hash:7].[ext]')
                 }
             },
             {
