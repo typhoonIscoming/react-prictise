@@ -1,5 +1,5 @@
 import React from 'react'
-import './router.css'
+import './router.scss'
 import {
     Route,
     Switch,
@@ -13,6 +13,7 @@ import Mine from '../pages/Mine'
 import Error from '../pages/Error'
 import Message from '../pages/Message'
 import Login from '../pages/login'
+import SubFind from '../pages/subPage/subFind'
 
 
 class MainRoute extends React.Component {
@@ -29,6 +30,7 @@ class MainRoute extends React.Component {
                     <Route exact path="/" render={() => (<Redirect exact to="/Home" />)} />
                     <Route exact path="/home" component={Home} />
                     <Route exact path="/find" component={Find} />
+                    <Route exact path="/find/subFind" component={SubFind} />
                     <Route exact path="/product" component={Product} />
                     <Route exact path="/message" component={Message} />
                     <Route exact path="/mine" component={Mine} />

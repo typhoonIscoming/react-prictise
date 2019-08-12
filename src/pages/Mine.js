@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import React, { Component, Suspense } from 'react';
 import { connect } from 'react-redux'
-
+import Menu from '../common/menu'
 import {
     changeCounter
 } from '../model/action'
@@ -42,11 +42,14 @@ class Mine extends React.Component {
     }
     render() {
         return (
-            <div className='home-page'>
-                <p>我是 Mine页面</p>
-                <Suspense fallback={<div>loading...</div>}>
-                    <LazyLoad />
-                </Suspense>
+            <div className='mine-page'>
+                <div className="mine-content">
+                    <p>我是 Mine页面</p>
+                    <Suspense fallback={<div>loading...</div>}>
+                        <LazyLoad />
+                    </Suspense>
+                </div>
+                <Menu />
             </div>
         )
     }

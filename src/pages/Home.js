@@ -6,6 +6,8 @@ import { findDOMNode } from 'react-dom';
 import { connect } from 'react-redux'
 import { changesecond } from '../model/action/index'
 
+import Menu from '../common/menu'
+
 import '../css/home.scss';
 import imageNotice from '../assets/notice.png'
 
@@ -25,7 +27,7 @@ function mapDispatchProps(dispatch) {
 
 /**函数式组件 */
 const MyDiv = (props) => {
-    console.log('functional props', props)
+    // console.log('functional props', props)
     return (
         <div className="functional-component">
             this is my functional component, it's just used in lists for show datas
@@ -142,6 +144,7 @@ class Home extends React.Component {
     render() {
         return (
             <div className='home-page'>
+                <div className="home-container">
                 我是 home页面
                 <p className="pag-p">this is new line</p>
                 <p className="pag-p-two" ref="pag-p-two">this is refs pag</p>
@@ -169,6 +172,8 @@ class Home extends React.Component {
                     点击我，获取通过createRef()得到的元素
                 </p>
                 <p onClick={this.goMine}>点击我，跳转到我的页面</p>
+                </div>
+                <Menu value='this is parentComponent from App' />
             </div>
         )
     }
