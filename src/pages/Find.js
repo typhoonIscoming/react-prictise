@@ -47,7 +47,7 @@ class Find extends Component{
     }
     skip() {
         console.log(this.props)
-        this.props.history.push({ pathname: '/find/subFind', query: { params: 123 } })
+        this.props.history.push({ pathname: '/find/subFind' })
     }
     render() {
         const { status, result, error } = this.props.find

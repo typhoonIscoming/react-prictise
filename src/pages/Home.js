@@ -58,6 +58,7 @@ class MyComponent extends Component {
                         className="home-component-input"
                         value={this.state.inputContent}
                         onChange={ this.inputEvent }
+                        type="number"
                     />
                 </p>
                 <p>this is my component-box, { this.state.inputContent }</p>
@@ -145,33 +146,33 @@ class Home extends React.Component {
         return (
             <div className='home-page'>
                 <div className="home-container">
-                我是 home页面
-                <p className="pag-p">this is new line</p>
-                <p className="pag-p-two" ref="pag-p-two">this is refs pag</p>
-                <MyDiv name="xie" address="shanghai" />
-                <MyComponent ref="langBtnList" />
-                <Executioner
-                    counter={ this.state.counter }
-                    callback={ this.callback }
-                >
-                    <h2>这是第一个元素, 计数器={this.state.counter}</h2>
-                </Executioner>
-                <p onClick={this.changeStore}>
-                    点击改变store中second中的数据 number={this.props.second.number}
-                </p>
-                <img className="image-notice" src={imageNotice} alt="notice" />
-                <div>
-                    <p> 定义refs的方法：回调函数，点击button，输入框聚焦 </p>
-                    <input className="inputStyle" type="text" ref={(textInput) => this.textInput = textInput} /> 
-                    <button onClick={this.focusTextInput}>focus</button>
-                </div>
-                <p
-                    ref={this.creatRefElement}
-                    onClick={this.getCreateRef}
-                >
-                    点击我，获取通过createRef()得到的元素
-                </p>
-                <p onClick={this.goMine}>点击我，跳转到我的页面</p>
+                    我是 home页面
+                    <p className="pag-p">this is new line</p>
+                    <p className="pag-p-two" ref="pag-p-two">this is refs pag</p>
+                    <MyDiv name="xie" address="shanghai" />
+                    <MyComponent ref="langBtnList" />
+                    <Executioner
+                        counter={ this.state.counter }
+                        callback={ this.callback }
+                    >
+                        <h2>这是第一个元素, 计数器={this.state.counter}</h2>
+                    </Executioner>
+                    <p onClick={this.changeStore}>
+                        点击改变store中second中的数据 number={this.props.second.number}
+                    </p>
+                    <img className="image-notice" src={imageNotice} alt="notice" />
+                    <div>
+                        <p> 定义refs的方法：回调函数，点击button，输入框聚焦 </p>
+                        <input className="inputStyle" type="tel" ref={(textInput) => this.textInput = textInput} /> 
+                        <button onClick={this.focusTextInput}>focus</button>
+                    </div>
+                    <p
+                        ref={this.creatRefElement}
+                        onClick={this.getCreateRef}
+                    >
+                        点击我，获取通过createRef()得到的元素
+                    </p>
+                    <p onClick={this.goMine}>点击我，跳转到我的页面</p>
                 </div>
                 <Menu value='this is parentComponent from App' />
             </div>

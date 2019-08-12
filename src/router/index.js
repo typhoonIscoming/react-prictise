@@ -6,6 +6,10 @@ import {
     Redirect,
   } from 'react-router-dom'
 
+// 做路由跳转的插件
+// import AnimatedRouter from 'react-animated-router'; //我们的AnimatedRouter组件
+// import 'react-animated-router/animate.css'; //引入默认的动画样式定义
+
 import Product from '../pages/Product.js'
 import Find from '../pages/Find'
 import Home from '../pages/Home.js'
