@@ -90,7 +90,6 @@ class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            ...props,
             counter: 1,
         }
         this.callback = this.callback.bind(this)
@@ -103,7 +102,6 @@ class Home extends React.Component {
         const p = document.getElementsByClassName('pag-p')[0]
         const el = findDOMNode(p)
         el.style.color = 'red'
-        // console.log('el', el)
         this.refs['pag-p-two'].style.color = 'greenyellow'
     }
     getSnapshotBeforeUpdate(prevProps, prevState) {

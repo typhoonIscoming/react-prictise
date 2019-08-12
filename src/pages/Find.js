@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { map } from 'lodash'
 
-import { Icon } from 'antd-mobile';
+import { Icon, Tabs, } from 'antd-mobile';
 import Menu from '../common/menu'
 
 import '../css/find.scss'
-import history from '../assets/mine/add.png'
 
 import { getLaugh, getHistory } from '../model/action'
 
@@ -38,7 +37,7 @@ class Find extends Component{
             name: 'zhangsan',
             age: 10,
             numberOfGuests: 3,
-            menu: [{ title: '笑话大全', img: history }, { title: '历史上的今天', img: history }],
+            tabs: [{ title: '笑话大全'}, { title: '历史上的今天' }, { title: '生僻字' }, { title: '24点' }],
         }
     }
     getData(index) {
@@ -49,30 +48,24 @@ class Find extends Component{
         console.log(this.props)
         this.props.history.push({ pathname: '/find/subFind' })
     }
+    renderContent = tab => {
+        return (
+            <div className="result-container">
+                <p>Content of {tab.title}</p>
+            </div>
+        );
+    }
     render() {
-        const { status, result, error } = this.props.find
-        const menu = this.state.menu
+        const { tabs } = this.state
         return (
             <div className="find-page">
                 <div className='find-container'>
-                    <ul className="functional-menu">
-                        { map(menu, (item, index) => {
-                            return (
-                                <li key={ index } onClick={ this.getData.bind(this, index) }>
-                                    <p>{ item.title }</p>
-                                    <img src={item.img} alt="img" />
-                                </li>
-                            )
-                        }) }
-                    </ul>
-                    <p onClick={ this.skip.bind(this) }>点击跳转到二级页面</p>
-                    <div className="search-result">
-                        <ShowElement
-                            status={ status }
-                            result={ result }
-                            error={ error }
-                        />
-                    </div>
+                    <Tabs
+                        tabs={ tabs }
+                        renderTabBar={ props => <Tabs.DefaultTabBar {...props} page={3} /> }
+                    >
+                        { this.renderContent }
+                    </Tabs>
                 </div>
                 <Menu />
             </div>
