@@ -1,36 +1,45 @@
-.find-container{
-    width: 100%;
+@import './public.scss';
+.find-page{
     height: 100%;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    .functional-menu{
+    padding-bottom: $paddingBottom;
+    .find-container{
         width: 100%;
-        margin-bottom: 20px;
-        &>li{
-            width: 25%;
-            border: 1px solid gray;
-            font-size: 14px;
-            float: left;
-            &+li{
-                border-left: none;
-            }
-            &>img{
-                width: 50px;
-                height: 50px;
-            }
-        }
-    }
-    .search-result{
-        flex: 1;
+        height: 100%;
+        overflow-x: hidden;
         overflow-y: scroll;
-        .content-item{
-            &+.content-item{
-                margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        .functional-menu{
+            width: 100%;
+            margin-bottom: 20px;
+            &>li{
+                width: 25%;
+                border: 1px solid gray;
+                font-size: 14px;
+                float: left;
+                &+li{
+                    border-left: none;
+                }
+                &>img{
+                    width: 50px;
+                    height: 50px;
+                }
             }
         }
-        img{
-            width: 100%;
+        .search-result{
+            flex: 1;
+            overflow-y: scroll;
+            .content-item{
+                &+.content-item{
+                    margin-top: 10px;
+                }
+            }
+            img{
+                width: 100%;
+            }
+        }
+        .result-container{
+            height: 100%;
         }
     }
 }

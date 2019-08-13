@@ -1,0 +1,174 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$add-name: 'add';
+$add-x: 188px;
+$add-y: 0px;
+$add-offset-x: -188px/2;
+$add-offset-y: 0px/2;
+$add-width: 31px/2;
+$add-height: 31px/2;
+$add-total-width: 219px/2;
+$add-total-height: 182px/2;
+$add-image: '~/assets/sprites/sprite.png';
+$add: (188px, 0px, -188px/2, 0px/2, 31px/2 + 1px, 31px/2 + 1px, 219px/2, 182px/2, '~/assets/sprites/sprite.png', 'add', );
+$android-name: 'android';
+$android-x: 142px;
+$android-y: 0px;
+$android-offset-x: -142px/2;
+$android-offset-y: 0px/2;
+$android-width: 42px/2;
+$android-height: 47px/2;
+$android-total-width: 219px/2;
+$android-total-height: 182px/2;
+$android-image: '~/assets/sprites/sprite.png';
+$android: (142px, 0px, -142px/2, 0px/2, 42px/2 + 1px, 47px/2 + 1px, 219px/2, 182px/2, '~/assets/sprites/sprite.png', 'android', );
+$apple-name: 'apple';
+$apple-x: 142px;
+$apple-y: 51px;
+$apple-offset-x: -142px/2;
+$apple-offset-y: -51px/2;
+$apple-width: 40px/2;
+$apple-height: 48px/2;
+$apple-total-width: 219px/2;
+$apple-total-height: 182px/2;
+$apple-image: '~/assets/sprites/sprite.png';
+$apple: (142px, 51px, -142px/2, -51px/2, 40px/2 + 1px, 48px/2 + 1px, 219px/2, 182px/2, '~/assets/sprites/sprite.png', 'apple', );
+$award-name: 'award';
+$award-x: 0px;
+$award-y: 142px;
+$award-offset-x: 0px/2;
+$award-offset-y: -142px/2;
+$award-width: 40px/2;
+$award-height: 40px/2;
+$award-total-width: 219px/2;
+$award-total-height: 182px/2;
+$award-image: '~/assets/sprites/sprite.png';
+$award: (0px, 142px, 0px/2, -142px/2, 40px/2 + 1px, 40px/2 + 1px, 219px/2, 182px/2, '~/assets/sprites/sprite.png', 'award', );
+$back-name: 'back';
+$back-x: 0px;
+$back-y: 0px;
+$back-offset-x: 0px/2;
+$back-offset-y: 0px/2;
+$back-width: 138px/2;
+$back-height: 138px/2;
+$back-total-width: 219px/2;
+$back-total-height: 182px/2;
+$back-image: '~/assets/sprites/sprite.png';
+$back: (0px, 0px, 0px/2, 0px/2, 138px/2 + 1px, 138px/2 + 1px, 219px/2, 182px/2, '~/assets/sprites/sprite.png', 'back', );
+$bankuserinfo-name: 'bankuserinfo';
+$bankuserinfo-x: 142px;
+$bankuserinfo-y: 103px;
+$bankuserinfo-offset-x: -142px/2;
+$bankuserinfo-offset-y: -103px/2;
+$bankuserinfo-width: 38px/2;
+$bankuserinfo-height: 28px/2;
+$bankuserinfo-total-width: 219px/2;
+$bankuserinfo-total-height: 182px/2;
+$bankuserinfo-image: '~/assets/sprites/sprite.png';
+$bankuserinfo: (142px, 103px, -142px/2, -103px/2, 38px/2 + 1px, 28px/2 + 1px, 219px/2, 182px/2, '~/assets/sprites/sprite.png', 'bankuserinfo', );
+$beibao-name: 'beibao';
+$beibao-x: 84px;
+$beibao-y: 142px;
+$beibao-offset-x: -84px/2;
+$beibao-offset-y: -142px/2;
+$beibao-width: 36px/2;
+$beibao-height: 29px/2;
+$beibao-total-width: 219px/2;
+$beibao-total-height: 182px/2;
+$beibao-image: '~/assets/sprites/sprite.png';
+$beibao: (84px, 142px, -84px/2, -142px/2, 36px/2 + 1px, 29px/2 + 1px, 219px/2, 182px/2, '~/assets/sprites/sprite.png', 'beibao', );
+$check-name: 'check';
+$check-x: 44px;
+$check-y: 142px;
+$check-offset-x: -44px/2;
+$check-offset-y: -142px/2;
+$check-width: 36px/2;
+$check-height: 36px/2;
+$check-total-width: 219px/2;
+$check-total-height: 182px/2;
+$check-image: '~/assets/sprites/sprite.png';
+$check: (44px, 142px, -44px/2, -142px/2, 36px/2 + 1px, 36px/2 + 1px, 219px/2, 182px/2, '~/assets/sprites/sprite.png', 'check', );
+$spritesheet-width: 219px;
+$spritesheet-height: 182px;
+$spritesheet-image: '~/assets/sprites/sprite.png';
+$spritesheet-sprites: ($add, $android, $apple, $award, $back, $bankuserinfo, $beibao, $check, );
+$spritesheet: (219px, 182px, '~/assets/sprites/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-background-size($sprite) {
+  background-size: nth($sprite, 7) nth($sprite, 8);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+  @include sprite-background-size($sprite);
+  background-repeat: no-repeat;
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

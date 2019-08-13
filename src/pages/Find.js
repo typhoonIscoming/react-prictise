@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { map } from 'lodash'
 
-import { Icon } from 'antd-mobile';
+import { Icon, Tabs, } from 'antd-mobile';
+import Menu from '../common/menu'
 
 import '../css/find.scss'
-import history from '../images/mine-images/historyToday.png'
 
 import { getLaugh, getHistory } from '../model/action'
 
@@ -37,35 +37,37 @@ class Find extends Component{
             name: 'zhangsan',
             age: 10,
             numberOfGuests: 3,
-            menu: [{ title: '笑话大全', img: history }, { title: '历史上的今天', img: history }],
+            tabs: [{ title: '笑话大全'}, { title: '历史上的今天' }, { title: '生僻字' }, { title: '24点' }],
         }
     }
     getData(index) {
         if(index === 0) this.props.getLaugh()
         else if(index === 1) this.props.getHistory()
     }
-    render() {
-        const { status, result, error } = this.props.find
-        const menu = this.state.menu
+    skip() {
+        console.log(this.props)
+        this.props.history.push({ pathname: '/find/subFind' })
+    }
+    renderContent = tab => {
         return (
-            <div className='find-container'>
-                <ul className="functional-menu">
-                    { map(menu, (item, index) => {
-                        return (
-                            <li key={ index } onClick={ this.getData.bind(this, index) }>
-                                <p>{ item.title }</p>
-                                <img src={item.img} alt="img" />
-                            </li>
-                        )
-                    }) }
-                </ul>
-                <div className="search-result">
-                    <ShowElement
-                        status={ status }
-                        result={ result }
-                        error={ error }
-                    />
+            <div className="result-container">
+                <p>Content of {tab.title}</p>
+            </div>
+        );
+    }
+    render() {
+        const { tabs } = this.state
+        return (
+            <div className="find-page">
+                <div className='find-container'>
+                    <Tabs
+                        tabs={ tabs }
+                        renderTabBar={ props => <Tabs.DefaultTabBar {...props} page={3} /> }
+                    >
+                        { this.renderContent }
+                    </Tabs>
                 </div>
+                <Menu />
             </div>
         )
     }

@@ -7,7 +7,7 @@ import './App.scss';
 
 
 import MainRoute from './router'
-import Menu from './common/menu'
+
 
 // 引入错误边界组件来处理页面中的错误导致页面崩溃的优化
 import ErrorBoundary from './components/ErrorBoundary'
@@ -42,12 +42,11 @@ class App extends React.Component {
   render() {
     return (
       <AppContext.Provider value={this.context}>
-      <div className="App">
-        <ErrorBoundary>
-          <MainRoute />
-        </ErrorBoundary>
-        <Menu value='this is parentComponent from App' />
-      </div>
+        <div className="App">
+          <ErrorBoundary>
+            <MainRoute />
+          </ErrorBoundary>
+        </div>
       </AppContext.Provider>
     );
   }

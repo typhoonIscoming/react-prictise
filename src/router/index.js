@@ -1,10 +1,14 @@
 import React from 'react'
-import './router.css'
+import './router.scss'
 import {
     Route,
     Switch,
     Redirect,
   } from 'react-router-dom'
+
+// 做路由跳转的插件
+// import AnimatedRouter from 'react-animated-router'; //我们的AnimatedRouter组件
+// import 'react-animated-router/animate.css'; //引入默认的动画样式定义
 
 import Product from '../pages/Product.js'
 import Find from '../pages/Find'
@@ -13,6 +17,7 @@ import Mine from '../pages/Mine'
 import Error from '../pages/Error'
 import Message from '../pages/Message'
 import Login from '../pages/login'
+import SubFind from '../pages/subPage/subFind'
 
 
 class MainRoute extends React.Component {
@@ -29,6 +34,7 @@ class MainRoute extends React.Component {
                     <Route exact path="/" render={() => (<Redirect exact to="/Home" />)} />
                     <Route exact path="/home" component={Home} />
                     <Route exact path="/find" component={Find} />
+                    <Route exact path="/find/subFind" component={SubFind} />
                     <Route exact path="/product" component={Product} />
                     <Route exact path="/message" component={Message} />
                     <Route exact path="/mine" component={Mine} />

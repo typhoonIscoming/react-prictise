@@ -1,13 +1,9 @@
 @import './public.scss';
-
-ol, ul, dl {
-    margin: 0;
-    padding: 0;
-}
-.mine-page{
+.product-page{
     height: 100%;
     padding-bottom: $paddingBottom;
-    .mine-content{
+    .product-content{
         height: 100%;
+        overflow-y: scroll;
     }
 }

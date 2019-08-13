@@ -1,9 +1,14 @@
+@import './public.scss';
+
 .inputStyle{
     outline-color: red;
     border: 1px solid black;
 }
 
 .home-page{
+    height: 100%;
+    padding-bottom: $paddingBottom;
+    overflow-y: scroll;
     .mycomponent-box{
         .home-component-input{
             @extend .inputStyle;

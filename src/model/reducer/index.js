@@ -9,6 +9,7 @@ import first from './first'
 import second from './second'
 import message from './message'
 import find from './find'
+import product from './product'
 
 // const loggerMiddleware = createLogger()
 
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     second,
     message,
     find,
+    product,
 })
 // 在applyMiddleware中引入thunkMiddleware之后，我们就能使用异步的action了，即将接口的操作放在异步的action中，在页面
 // 直接调用这个action函数即可，在异步的action中操作业务的reducer。
