@@ -91,6 +91,7 @@ class Home extends React.Component {
         super(props)
         this.state = {
             counter: 1,
+            list: [{ id: '1', name: '语文' }, { id: '2', name: '数学' }, { id: '3', name: '英语' }],
         }
         this.callback = this.callback.bind(this)
         this.changeStore = this.changeStore.bind(this)
@@ -137,10 +138,25 @@ class Home extends React.Component {
     goMine() {
         this.props.history.push({ pathname: '/mine', query: { name: 'jack' } })
     }
+    add() {
+        const arr = ['历史', '化学', '物理', '生物', '政治', '高数', '线性代数']
+        const index = Math.floor(Math.random() * arr.length)
+        const { list } = this.state;
+        let temList = list
+        if(list.filter((item) => item.name === arr[index] ).length === 0) {
+            const len = list.length + 1;
+            temList.push({ id: len.toString(), name: arr[index] })
+            this.setState({
+                list: temList
+            })
+        }
+    }
     static defaultProps = {
         name: 'cxy'
     }
     render() {
+        const { list } = this.state
+        console.log('list', list)
         return (
             <div className='home-page'>
                 <div className="home-container">
@@ -171,6 +187,12 @@ class Home extends React.Component {
                         点击我，获取通过createRef()得到的元素
                     </p>
                     <p onClick={this.goMine}>点击我，跳转到我的页面</p>
+                    <p onClick={this.add.bind(this)}>点击增加</p>
+                    <div>
+                        {list.map((item, index) => {
+                            return (<p key={index}>{item.name}</p>)
+                        })}
+                    </div>
                 </div>
                 <Menu value='this is parentComponent from App' />
             </div>
