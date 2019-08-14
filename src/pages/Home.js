@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 // import PropTypes from 'prop-types'
+import recomputed, { $state } from 'recomputed'
 
 import { connect } from 'react-redux'
 import { changesecond } from '../model/action/index'
@@ -92,18 +93,37 @@ class Home extends React.Component {
         this.state = {
             counter: 1,
             list: [{ id: '1', name: '语文' }, { id: '2', name: '数学' }, { id: '3', name: '英语' }],
+            valueTel: '',
+            baseNum: 20,
         }
         this.callback = this.callback.bind(this)
         this.changeStore = this.changeStore.bind(this)
         this.goMine = this.goMine.bind(this)
         this.creatRefElement = React.createRef()
+
+        // 设置计算书型的实例对象
+        const composer = recomputed(this);
+        this.getContacts = composer(
+            $state('valueTel'),
+            valueTel => valueTel * 10
+        )
+
+        // 如果一个计算属性要依赖于另一个计算属性
+        this.getBiggest = composer(
+            this.getContacts,
+            $state('baseNum'),
+            (getContacts, baseNum) => {
+                console.log('getContacts=', getContacts, ', baseNum=', baseNum)
+                return getContacts + baseNum
+            }
+        )
     }
     
     componentDidMount() {
         const p = document.getElementsByClassName('pag-p')[0]
         const el = findDOMNode(p)
         el.style.color = 'red'
-        this.refs['pag-p-two'].style.color = 'greenyellow'
+        this.refs['pag-p-two'].style.color = 'greenyellow';
     }
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('getSnapshotBeforeUpdate');
@@ -151,11 +171,18 @@ class Home extends React.Component {
             })
         }
     }
+    changeValue(event) {
+        this.setState({
+            valueTel: event.target.value
+        })
+    }
     static defaultProps = {
         name: 'cxy'
     }
     render() {
-        const { list } = this.state
+        const { list, valueTel } = this.state
+        const getContacts = this.getContacts()
+        const getBiggest = this.getBiggest()
         console.log('list', list)
         return (
             <div className='home-page'>
@@ -164,7 +191,9 @@ class Home extends React.Component {
                     <p className="pag-p">this is new line</p>
                     <p className="pag-p-two" ref="pag-p-two">this is refs pag</p>
                     <MyDiv name="xie" address="shanghai" />
-                    <MyComponent ref="langBtnList" />
+                    <MyComponent
+                        ref="langBtnList"
+                    />
                     <Executioner
                         counter={ this.state.counter }
                         callback={ this.callback }
@@ -177,8 +206,16 @@ class Home extends React.Component {
                     <img className="image-notice" src={imageNotice} alt="notice" />
                     <div>
                         <p> 定义refs的方法：回调函数，点击button，输入框聚焦 </p>
-                        <input className="inputStyle" type="tel" ref={(textInput) => this.textInput = textInput} /> 
+                        <input
+                            className="inputStyle"
+                            type="tel"
+                            ref={(textInput) => this.textInput = textInput}
+                            value={valueTel}
+                            onChange={this.changeValue.bind(this)}
+                        /> 
                         <button onClick={this.focusTextInput}>focus</button>
+                        <p>通过recomputed插件对输入值进行计算属性，输入值={valueTel}, 计算后值={getContacts}</p>
+                        <p>这个计算属性的值基于上面的计算属性和一个state中的值，结果={getBiggest}</p>
                     </div>
                     <p
                         ref={this.creatRefElement}

@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { map } from 'lodash'
+// import { map } from 'lodash'
 
-import { Icon, Tabs, } from 'antd-mobile';
+import { Tabs, } from 'antd-mobile';
 import Menu from '../common/menu'
 
 import '../css/find.scss'
 
 import { getLaugh, getHistory } from '../model/action'
 
-const ShowElement = (props) => {
-    const { status, result, error } = props
-    if(status === 0) {
-        return ( <Icon type="loading" /> )
-    } else if(status === 1) {
-        return map(result, (item, index) => {
-            return (<div className="content-item" key={ index }>
-                <p>{ item.title }</p>
-                <img src={ item.img }  alt={ item.title } />
-            </div>)
-        })
-    } else if(status === 2) {
-        return (
-            <div>{ error }</div>
-        )
-    } else {
-        return (<div></div>)
-    }
-}
+// const ShowElement = (props) => {
+//     const { status, result, error } = props
+//     if(status === 0) {
+//         return ( <Icon type="loading" /> )
+//     } else if(status === 1) {
+//         return map(result, (item, index) => {
+//             return (<div className="content-item" key={ index }>
+//                 <p>{ item.title }</p>
+//                 <img src={ item.img }  alt={ item.title } />
+//             </div>)
+//         })
+//     } else if(status === 2) {
+//         return (
+//             <div>{ error }</div>
+//         )
+//     } else {
+//         return (<div></div>)
+//     }
+// }
 
 
 class Find extends Component{
