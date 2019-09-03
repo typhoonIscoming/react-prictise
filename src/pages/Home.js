@@ -183,7 +183,6 @@ class Home extends React.Component {
         const { list, valueTel } = this.state
         const getContacts = this.getContacts()
         const getBiggest = this.getBiggest()
-        console.log('list', list)
         return (
             <div className='home-page'>
                 <div className="home-container">

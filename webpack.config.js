@@ -28,8 +28,8 @@ module.exports = {
         alias: {
             '@model': path.resolve(__dirname, './src/model'),
             '@': path.resolve(__dirname, './src'),
-            'theme': resolve('src/theme'),
-            'assets': resolve('src/assets'),
+            'theme': path.resolve('src/theme'),
+            'assets': path.resolve('src/assets'),
         },
     },
     plugin: [
