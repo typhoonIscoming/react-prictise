@@ -15,6 +15,7 @@ class Login extends Component{
                 <div className="login-container">
                     
                     <div className="optional-bar input-content">
+                    login
                     </div>
 
                 </div>
