@@ -3,7 +3,8 @@ import React, { Component, Suspense } from 'react';
 import { connect } from 'react-redux'
 import Menu from '../common/menu'
 import {
-    changeCounter
+    changeCounter,
+    changeMessage,
 } from '../model/action'
 
 import '../css/mine.scss'
@@ -33,6 +34,7 @@ class Mine extends React.Component {
         
     }
     componentDidMount() {
+        this.props.changeMessage()
     }
     componentWillUnmount() {
         if(this.timer) {
@@ -58,7 +60,10 @@ function mapStateToProps(state) {
     return { message: state.message }
 }
 function mapDispatchProps(dispatch) {
-    return { changeCounter: (params) => dispatch(changeCounter(params)) }
+    return {
+        changeCounter: (params) => dispatch(changeCounter(params)),
+        changeMessage: () => dispatch(changeMessage()),
+    }
 }
 
 
