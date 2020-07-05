@@ -2,4 +2,4 @@
 /build/
 yarn.lock
 /.history/
-package-lock.json
+/package-lock.json
