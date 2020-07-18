@@ -16,7 +16,7 @@
 
 执行完此命令之后，created-react-app会在你的根项目中创建config目录(如果你的项目中已经存在config的目录会执行失败，修改你的config目录的名字重新执行即可)，执行完之后，重新运行会报错。但是会有提示<br>
 
-[!执行完命令之后，在项目中生成的config](./static/folder.png)
+![执行完命令之后，在项目中生成的config](./static/folder.png)
 
 在项目根目录下新建.env的文件，并在其中写入``SKIP_PREFLIGHT_CHECK=true``<br>
 
