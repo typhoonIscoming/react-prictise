@@ -4,6 +4,8 @@ import { findDOMNode } from 'react-dom';
 // import PropTypes from 'prop-types'
 import recomputed, { $state } from 'recomputed'
 
+import _ from '../utils/debounce'
+
 import { connect } from 'react-redux'
 import { changesecond } from '../model/action/index'
 
@@ -96,7 +98,7 @@ class Home extends React.Component {
             valueTel: '',
             baseNum: 20,
         }
-        this.callback = this.callback.bind(this)
+        this.callback = _.debounce(this.callback.bind(this))
         this.changeStore = this.changeStore.bind(this)
         this.goMine = this.goMine.bind(this)
         this.creatRefElement = React.createRef()

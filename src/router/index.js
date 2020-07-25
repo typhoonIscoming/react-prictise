@@ -31,7 +31,7 @@ class MainRoute extends React.Component {
         return (
             <div className='content page-overflow-y-scroll'>
                 <Switch>
-                    <Route exact path="/" render={() => (<Redirect exact to="/Home" />)} />
+                    <Route exact path="/" render={() => (<Redirect exact to="/home" />)} />
                     <Route exact path="/home" component={Home} />
                     <Route exact path="/find" component={Find} />
                     <Route exact path="/find/subFind" component={SubFind} />

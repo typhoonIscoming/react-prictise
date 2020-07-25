@@ -10,6 +10,11 @@ import App from './App';
 
 import * as serviceWorker from './serviceWorker';
 
+const hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?611e7b78ba36a5de4d13f1098c6fcafd";
+    const s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+
 
 // store.subscribe(() => console.log('====', store.getState()))
 if (module.hot) {
