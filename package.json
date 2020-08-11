@@ -35,7 +35,7 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
-    "proxy": "http://139.196.229.212:3080",
+    "proxy": "http://www.typhooniscoming.cn",
     "eslintConfig": {
         "extends": "react-app"
     },

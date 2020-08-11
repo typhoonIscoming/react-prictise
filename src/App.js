@@ -16,14 +16,14 @@ import ErrorBoundary from './components/ErrorBoundary'
 import { addTodo } from './model/action/index'
 
 const AppContext = React.createContext({
-  value: 'this is Mine context',
-  text: '这是Mine组件的context',
+    value: 'this is Mine context',
+    text: '这是Mine组件的context',
 })
 
 function mapStateToProps(state) {
-  return {
-    first: state.first
-  };
+    return {
+        first: state.first
+    };
 }
 
 function mapDispatchProps(dispatch) {
@@ -33,23 +33,23 @@ function mapDispatchProps(dispatch) {
 }
 
 class App extends React.Component {
-  constructor(props, context) {
-    super(props, context)
-    this.state = {
-      ...props,
+    constructor(props, context) {
+        super(props, context)
+        this.state = {
+            ...props,
+        }
     }
-  }
-  render() {
-    return (
-      <AppContext.Provider value={this.context}>
-        <div className="App">
-          <ErrorBoundary>
-            <MainRoute />
-          </ErrorBoundary>
-        </div>
-      </AppContext.Provider>
-    );
-  }
+    render() {
+        return (
+        <AppContext.Provider value={this.context}>
+            <div className="App">
+                <ErrorBoundary>
+                    <MainRoute />
+                </ErrorBoundary>
+            </div>
+        </AppContext.Provider>
+        );
+    }
 }
 App.contextType = AppContext
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 // import { fetch } from 'cross-fetch'
 import Menu from '../common/menu'
 
@@ -8,21 +9,22 @@ import '../css/message.scss'
 
 import { changeMessage } from '../model/action'
 
-
-
-
 class Message extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            
         }
         this.getData = this.getData.bind(this)
+    }
+    // 声明需要使用的Context属性
+    static contextTypes = {
+        text: PropTypes.string
     }
     getData() {
         this.props.changeMessage()
     }
     render() {
+        console.log('message', this.context)
         return (
             <div className="message-page-container">
                 <div className="message-content">
