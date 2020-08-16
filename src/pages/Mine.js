@@ -9,6 +9,8 @@ import {
 
 import '../css/mine.scss'
 
+import FnCom from '../components/fncomponent'
+
 let LazyLoad = React.lazy(() => import('../components/LazyLoad'))
 
 
@@ -49,6 +51,7 @@ class Mine extends React.Component {
                     <p>我是 Mine页面</p>
                     <Suspense fallback={<div>loading...</div>}>
                         <LazyLoad />
+                        <FnCom value="父组件的值" />
                     </Suspense>
                 </div>
                 <Menu />
