@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { findDOMNode } from 'react-dom';
 // import PropTypes from 'prop-types'
 import recomputed, { $state } from 'recomputed'
@@ -30,10 +30,26 @@ function mapDispatchProps(dispatch) {
 
 /**函数式组件 */
 const MyDiv = (props) => {
+    const [count, setCount] = useState(0)
+    const [num, setNum] = useState(0)
+    console.log('props', props)
+    useEffect(() => {
+        console.log('this component is rendered and execute only count is changed')
+        document.title = `you clicked ${count} times`
+        if (count % 4 === 0) {
+            setNum(num + 1)
+        }
+        return () => {
+            console.log('execute clean up function cleanupEffect')
+        }
+    }, [count])
     // console.log('functional props', props)
     return (
         <div className="functional-component">
             this is my functional component, it's just used in lists for show datas
+            useState count={count}
+            <button onClick={() => setCount(count + 1)}>count={count}自增+1</button>
+            <button onClick={() => setNum(num - 1)}>num={num}自减-1</button>
         </div>
     )
 }
@@ -97,6 +113,7 @@ class Home extends React.Component {
             list: [{ id: '1', name: '语文' }, { id: '2', name: '数学' }, { id: '3', name: '英语' }],
             valueTel: '',
             baseNum: 20,
+            isShowMyDiv: true,
         }
         this.callback = _.debounce(this.callback.bind(this))
         this.changeStore = this.changeStore.bind(this)
@@ -178,11 +195,16 @@ class Home extends React.Component {
             valueTel: event.target.value
         })
     }
+    clearMyDiv() {
+        this.setState({
+            isShowMyDiv: !this.state.isShowMyDiv
+        })
+    }
     static defaultProps = {
         name: 'cxy'
     }
     render() {
-        const { list, valueTel } = this.state
+        const { list, valueTel, isShowMyDiv } = this.state
         const getContacts = this.getContacts()
         const getBiggest = this.getBiggest()
         return (
@@ -190,8 +212,8 @@ class Home extends React.Component {
                 <div className="home-container">
                     我是 home页面
                     <p className="pag-p">this is new line</p>
-                    <p className="pag-p-two" ref="pag-p-two">this is refs pag</p>
-                    <MyDiv name="xie" address="shanghai" />
+                    <p className="pag-p-two" ref="pag-p-two" onClick={() => this.clearMyDiv()}>this is refs pag</p>
+                    { isShowMyDiv ? <MyDiv name="xie" address="shanghai" /> : null }
                     <MyComponent
                         ref="langBtnList"
                     />
