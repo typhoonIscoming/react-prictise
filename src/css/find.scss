@@ -9,37 +9,12 @@
         overflow-y: scroll;
         display: flex;
         flex-direction: column;
-        .functional-menu{
-            width: 100%;
-            margin-bottom: 20px;
-            &>li{
-                width: 25%;
-                border: 1px solid gray;
-                font-size: 14px;
-                float: left;
-                &+li{
-                    border-left: none;
-                }
-                &>img{
-                    width: 50px;
-                    height: 50px;
-                }
-            }
-        }
-        .search-result{
-            flex: 1;
-            overflow-y: scroll;
-            .content-item{
-                &+.content-item{
-                    margin-top: 10px;
-                }
-            }
-            img{
-                width: 100%;
-            }
-        }
-        .result-container{
-            height: 100%;
-        }
+    }
+    .result-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        background-color: #fff;
     }
 }
