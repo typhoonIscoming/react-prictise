@@ -1,10 +1,7 @@
 import React from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
+
 import './router.scss'
-import {
-    Route,
-    Switch,
-    Redirect,
-  } from 'react-router-dom'
 
 // 做路由跳转的插件
 // import AnimatedRouter from 'react-animated-router'; //我们的AnimatedRouter组件
