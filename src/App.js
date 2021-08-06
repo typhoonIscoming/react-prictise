@@ -27,9 +27,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchProps(dispatch) {
-  return {
-    someAction: (arg) => dispatch(addTodo(arg)),
-  };
+    return {
+        someAction: (arg) => dispatch(addTodo(arg)),
+    };
 }
 
 class App extends React.Component {
@@ -41,13 +41,13 @@ class App extends React.Component {
     }
     render() {
         return (
-        <AppContext.Provider value={this.context}>
-            <div className="App">
-                <ErrorBoundary>
-                    <MainRoute />
-                </ErrorBoundary>
-            </div>
-        </AppContext.Provider>
+            <AppContext.Provider value={this.context}>
+                <div className="App">
+                    <ErrorBoundary>
+                        <MainRoute />
+                    </ErrorBoundary>
+                </div>
+            </AppContext.Provider>
         );
     }
 }
