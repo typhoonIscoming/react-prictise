@@ -212,6 +212,7 @@ class Home extends React.Component {
                 <div className="home-container">
                     我是 home页面
                     <p>本次更新了融入微应用在react框架中</p>
+                    <p>配置了CI/CD</p>
                     <p className="pag-p">this is new line</p>
                     <p className="pag-p-two" ref="pag-p-two" onClick={() => this.clearMyDiv()}>this is refs pag</p>
                     { isShowMyDiv ? <MyDiv name="xie" address="shanghai" /> : null }
