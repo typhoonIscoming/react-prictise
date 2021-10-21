@@ -256,7 +256,7 @@ class Home extends React.Component {
                         })}
                     </div>
                 </div>
-                <Menu value='this is parentComponent from App' />
+                <Menu />
             </div>
         )
     }

@@ -21,7 +21,11 @@
     }
 }
 .menu-container li a{
+    width: 100%;
+    display: inline-block;
+    height: $paddingBottom;
     color: black;
+    line-height: $paddingBottom;
 }
 .menu-container li a.selected{
     color: red;

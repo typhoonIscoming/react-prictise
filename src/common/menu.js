@@ -8,12 +8,6 @@ import menu from '../utils/menu'
 
 
 class MyComponent extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            ...props,
-        }
-    }
     render() {
         return (
             <ul className='menu-container'>
