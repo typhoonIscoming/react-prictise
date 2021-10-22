@@ -1,30 +1,57 @@
-
-html, body, #root {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  height: 100%;
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    height: 100%;
 }
-*{ margin: 0; padding: 0; }
+* {
+    margin: 0;
+    padding: 0;
+}
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
-html,body,div,p,ul,li,ol,dl,dt,dd,a,img,h1,h2,h3,h4,input,textarea{
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  text-decoration: none;
-  -webkit-overflow-scrolling: touch;
+html,
+body,
+div,
+p,
+ul,
+li,
+ol,
+dl,
+dt,
+dd,
+a,
+img,
+h1,
+h2,
+h3,
+h4,
+input,
+textarea {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    -webkit-overflow-scrolling: touch;
+    /* google就决定默认取消了对这个事件的检查，默认时间就取消了。直接执行滑动操作。这样就更加的顺滑了。但是浏览器的控制台
+    就会进行错误提醒了。从 chrome56 开始，在 window、document 和 body 上注册的 touchstart 和 touchmove 事件处理函
+    数，会默认为是 passive: true。浏览器忽略 preventDefault() 就可以第一时间滚动了。
+    1、注册处理函数时，用如下方式，明确声明为不是被动的window.addEventListener(‘touchmove’, func, { passive: false }
+    2、应用 CSS 属性 touch-action: none; 这样任何触摸事件都不会产生默认行为，但是 touch 事件照样触发。 */
+    touch-action: none;
 }
 
-.page-overflow-y-scroll{
-  overflow-y: scroll;
+.page-overflow-y-scroll {
+    overflow-y: scroll;
 }

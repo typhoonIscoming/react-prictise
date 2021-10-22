@@ -1,10 +1,11 @@
 // eslint-disable-next-line
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 import { connect } from 'react-redux'
 import Menu from '../common/menu'
 import '../css/product.scss'
 
+// eslint-disable-next-line
 class Product extends React.Component {
     constructor(props) {
         super(props);
@@ -64,5 +65,18 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Product)
+function FunctionProduct(props) {
+    const [count, setCount] = useState(0)
+    return (
+        <div className="product-page">
+            <div className="product-content">
+                <p>显示count={count}</p>
+                <button onClick={() => setCount(count+1)}>+1</button>
+            </div>
+            <Menu />
+        </div>
+    )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FunctionProduct)
 
