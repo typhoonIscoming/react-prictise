@@ -67,11 +67,13 @@ function mapDispatchToProps(dispatch) {
 
 function FunctionProduct(props) {
     const [count, setCount] = useState(0)
+    const [step, setStep] = useState(1)
     return (
         <div className="product-page">
             <div className="product-content">
                 <p>显示count={count}</p>
-                <button onClick={() => setCount(count+1)}>+1</button>
+                <input placeholder="step" value={step} onChange={(e) => setStep(e.target.value)} />
+                <button onClick={() => setCount(count+step)}>+{step}</button>
             </div>
             <Menu />
         </div>

@@ -16,13 +16,6 @@ hm.src = "https://hm.baidu.com/hm.js?611e7b78ba36a5de4d13f1098c6fcafd";
 const s = document.getElementsByTagName("script")[0];
 s.parentNode.insertBefore(hm, s);
 
-
-// store.subscribe(() => console.log('====', store.getState()))
-if (module.hot) {
-    module.hot.accept();
-}
-// console.log('process', process.env.REACT_APP_ENV)
-
 function render() {
     ReactDOM.render((
         <Provider store={store}>
@@ -35,6 +28,14 @@ function render() {
 if (!window.__POWERED_BY_QIANKUN__) {
     render();
 }
+
+// store.subscribe(() => console.log('====', store.getState()))
+if (module.hot) {
+    module.hot.accept('./App', function() {
+        render()
+    });
+}
+// console.log('process', process.env.REACT_APP_ENV)
 
 /**
  * bootstrap 只会在微应用初始化的时候调用一次，下次微应用重新进入时会直接调用 mount 钩子，不会再重复触发 bootstrap。

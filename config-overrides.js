@@ -29,7 +29,7 @@ module.exports = {
         return (proxy, allowedHost) => {
             const config = configFunction(proxy, allowedHost);
             config.open = false;
-            config.hot = false;
+            config.hot = true;
             config.headers = {
                 'Access-Control-Allow-Origin': '*',
             };
