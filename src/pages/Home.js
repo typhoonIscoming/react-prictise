@@ -32,7 +32,6 @@ function mapDispatchProps(dispatch) {
 const MyDiv = (props) => {
     const [count, setCount] = useState(0)
     const [num, setNum] = useState(0)
-    console.log('props', props)
     useEffect(() => {
         console.log('this component is rendered and execute only count is changed')
         document.title = `you clicked ${count} times`
