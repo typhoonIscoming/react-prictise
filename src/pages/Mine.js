@@ -20,20 +20,7 @@ class Mine extends React.Component {
         super(props, context)
         this.state = {
             timer: null,
-            
         }
-    }
-    showMessage() {
-        this.timer = setInterval(() => {
-            const { counter } = this.props.message
-            if(counter < 100) {
-                this.props.changeCounter(counter + 1)
-            } else {
-                this.props.changeCounter(0)
-                clearInterval(this.timer)
-            }
-        }, 200)
-        
     }
     componentDidMount() {
         this.props.changeMessage()
