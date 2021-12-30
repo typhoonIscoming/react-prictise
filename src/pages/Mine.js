@@ -17,8 +17,6 @@ let LazyLoad = React.lazy(() => new Promise(resolve => {
     }, 20000)
 }))
 
-
-
 class Mine extends React.Component {
     constructor(props, context) {
         super(props, context)
