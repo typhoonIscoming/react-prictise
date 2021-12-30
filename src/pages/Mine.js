@@ -11,7 +11,11 @@ import '../css/mine.scss'
 
 import FnCom from '../components/fncomponent'
 
-let LazyLoad = React.lazy(() => import('../components/LazyLoad'))
+let LazyLoad = React.lazy(() => new Promise(resolve => {
+    setTimeout(() => {
+        resolve(import('../components/LazyLoad'))
+    }, 2000)
+}))
 
 
 
@@ -23,6 +27,7 @@ class Mine extends React.Component {
         }
     }
     componentDidMount() {
+        console.log('this.props', this.props)
         this.props.changeMessage()
     }
     componentWillUnmount() {

@@ -30,11 +30,11 @@ if (!window.__POWERED_BY_QIANKUN__) {
 }
 
 // store.subscribe(() => console.log('====', store.getState()))
-if (module.hot) {
-    module.hot.accept('./App', function() {
-        render()
-    });
-}
+// if (module.hot) {
+//     module.hot.accept('./App', function() {
+//         render()
+//     });
+// }
 // console.log('process', process.env.REACT_APP_ENV)
 
 /**

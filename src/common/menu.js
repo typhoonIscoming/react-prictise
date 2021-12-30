@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './menu.scss'
 
@@ -28,8 +28,11 @@ class MyComponent extends Component {
                                 )
                             }
                         ),
-                        <li className="nav-menu">
-                            <Link key='list' to={`/list/${random}`} exact activeClassName='selected'>list页{random}</Link>     
+                        <li className="nav-menu" key={Math.random()}>
+                            <NavLink key='list' to={`/list/${random}`} exact activeClassName='selected'>list页{random}</NavLink>     
+                        </li>,
+                        <li className="nav-menu" key={Math.random()}>
+                            <NavLink key='list' to={`/mine?id=${random}`} exact activeClassName='selected'>mine页{random}</NavLink>     
                         </li>
                     ]
                 }
