@@ -14,7 +14,7 @@ import FnCom from '../components/fncomponent'
 let LazyLoad = React.lazy(() => new Promise(resolve => {
     setTimeout(() => {
         resolve(import('../components/LazyLoad'))
-    }, 2000)
+    }, 20000)
 }))
 
 
@@ -41,7 +41,7 @@ class Mine extends React.Component {
             <div className='mine-page'>
                 <div className="mine-content">
                     <p>我是 Mine页面</p>
-                    <Suspense fallback={<div>loading...</div>}>
+                    <Suspense fallback={<div className="loading">loading</div>}>
                         <LazyLoad />
                         <FnCom value="父组件的值" />
                     </Suspense>
