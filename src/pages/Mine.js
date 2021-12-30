@@ -1,6 +1,8 @@
 // eslint-disable-next-line
 import React, { Component, Suspense } from 'react';
 import { connect } from 'react-redux'
+import Calendar from 'rc-calendar/lib/RangeCalendar';
+import 'rc-calendar/assets/index.css'
 import Menu from '../common/menu'
 import {
     changeCounter,
@@ -43,6 +45,7 @@ class Mine extends React.Component {
                         <LazyLoad />
                         <FnCom value="父组件的值" />
                     </Suspense>
+                    <Calendar />
                 </div>
                 <Menu />
             </div>
