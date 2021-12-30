@@ -1,13 +1,15 @@
 @import './public.scss';
 
-ol, ul, dl {
+ol,
+ul,
+dl {
     margin: 0;
     padding: 0;
 }
-.mine-page{
+.mine-page {
     height: 100%;
     padding-bottom: $paddingBottom;
-    .mine-content{
+    .mine-content {
         height: 100%;
     }
 }

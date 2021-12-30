@@ -15,6 +15,7 @@ import Error from '../pages/Error'
 import Message from '../pages/Message'
 import Login from '../pages/login'
 import SubFind from '../pages/subPage/subFind'
+import List from '../pages/list'
 
 
 class MainRoute extends React.Component {
@@ -36,6 +37,7 @@ class MainRoute extends React.Component {
                     <Route exact path="/message" component={Message} />
                     <Route exact path="/mine" component={Mine} />
                     <Route exact path="/login" component={Login} />
+                    <Route exact path="/list/:id" component={List} />
                     <Route component={Error} />
                 </Switch>
             </div>
