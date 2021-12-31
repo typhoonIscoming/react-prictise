@@ -1,8 +1,8 @@
 // eslint-disable-next-line
 import React, { Component, Suspense } from 'react';
 import { connect } from 'react-redux'
-import Calendar from 'rc-calendar/lib/RangeCalendar';
-import 'rc-calendar/assets/index.css'
+import Calendar from '../components/calendar';
+
 import Menu from '../common/menu'
 import {
     changeCounter,
@@ -24,10 +24,12 @@ class Mine extends React.Component {
         super(props, context)
         this.state = {
             timer: null,
+            currentValue: '1',
         }
+        this.handleChange = this.handleChange.bind(this)
     }
     componentDidMount() {
-        console.log('this.props', this.props)
+        // console.log('this.props', this.props)
         this.props.changeMessage()
     }
     componentWillUnmount() {
@@ -36,16 +38,22 @@ class Mine extends React.Component {
             this.props.changeCounter(0)
         }
     }
+    handleChange(val) {
+        const result = new Date(val).getDate()
+        this.setState({
+            currentValue: result,
+        })
+    }
     render() {
         return (
             <div className='mine-page'>
                 <div className="mine-content">
-                    <p>我是 Mine页面</p>
+                    <p>我是 Mine页面, {this.state.currentValue}</p>
                     <Suspense fallback={<div className="loading">loading</div>}>
                         <LazyLoad />
                         <FnCom value="父组件的值" />
                     </Suspense>
-                    <Calendar />
+                    <Calendar onChange={(val) => this.handleChange(val) } />
                 </div>
                 <Menu />
             </div>
